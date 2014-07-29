@@ -232,7 +232,7 @@
             this.btnSyncAlbumNextPic.Name = "btnSyncAlbumNextPic";
             this.btnSyncAlbumNextPic.Size = new System.Drawing.Size(22, 209);
             this.btnSyncAlbumNextPic.TabIndex = 67;
-            this.btnSyncAlbumNextPic.Text = "btnSyncAlbumNextPic";
+            this.btnSyncAlbumNextPic.Text = ">";
             this.btnSyncAlbumNextPic.UseVisualStyleBackColor = true;
             this.btnSyncAlbumNextPic.Click += new System.EventHandler(this.btnSyncAlbumNextPic_Click);
             // 
@@ -244,7 +244,7 @@
             this.btnSyncAlbumPrevPic.Name = "btnSyncAlbumPrevPic";
             this.btnSyncAlbumPrevPic.Size = new System.Drawing.Size(22, 209);
             this.btnSyncAlbumPrevPic.TabIndex = 66;
-            this.btnSyncAlbumPrevPic.Text = "btnSyncAlbumPrevPic";
+            this.btnSyncAlbumPrevPic.Text = "<";
             this.btnSyncAlbumPrevPic.UseVisualStyleBackColor = true;
             this.btnSyncAlbumPrevPic.Click += new System.EventHandler(this.btnSyncAlbumPrevPic_Click);
             // 
@@ -423,7 +423,7 @@
             this.btnPendingAlbumNextPic.Name = "btnPendingAlbumNextPic";
             this.btnPendingAlbumNextPic.Size = new System.Drawing.Size(22, 209);
             this.btnPendingAlbumNextPic.TabIndex = 66;
-            this.btnPendingAlbumNextPic.Text = "btnPendingAlbumNextPic";
+            this.btnPendingAlbumNextPic.Text = ">";
             this.btnPendingAlbumNextPic.UseVisualStyleBackColor = true;
             this.btnPendingAlbumNextPic.Click += new System.EventHandler(this.btnPendingAlbumNextPic_Click);
             // 
@@ -446,7 +446,7 @@
             this.btnPendingAlbumPrevPic.Name = "btnPendingAlbumPrevPic";
             this.btnPendingAlbumPrevPic.Size = new System.Drawing.Size(22, 209);
             this.btnPendingAlbumPrevPic.TabIndex = 65;
-            this.btnPendingAlbumPrevPic.Text = "btnPendingAlbumPrevPic";
+            this.btnPendingAlbumPrevPic.Text = "<";
             this.btnPendingAlbumPrevPic.UseVisualStyleBackColor = true;
             this.btnPendingAlbumPrevPic.Click += new System.EventHandler(this.btnPendingAlbumPrevPic_Click);
             // 
