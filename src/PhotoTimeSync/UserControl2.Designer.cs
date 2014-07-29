@@ -35,6 +35,7 @@
             this.lstFolders = new System.Windows.Forms.ListBox();
             this.lstPictures = new System.Windows.Forms.ListBox();
             this.pnlPictureDetail = new System.Windows.Forms.Panel();
+            this.lblAdjustedDateTime = new System.Windows.Forms.Label();
             this.hourUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.minuteUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.yearUpDown = new PhotoTimeSync.MyNumericUpDown();
@@ -44,7 +45,6 @@
             this.lblOriginalDateTimeValue = new System.Windows.Forms.Label();
             this.secondUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.dayUpDown = new PhotoTimeSync.MyNumericUpDown();
-            this.lblAdjustedDateTime = new System.Windows.Forms.Label();
             this.lblOriginalDateTime = new System.Windows.Forms.Label();
             this.pnlPicturePreview = new System.Windows.Forms.Panel();
             this.headerControl1 = new PhotoTimeSync.HeaderControl();
@@ -131,6 +131,16 @@
             this.pnlPictureDetail.Size = new System.Drawing.Size(375, 365);
             this.pnlPictureDetail.TabIndex = 0;
             // 
+            // lblAdjustedDateTime
+            // 
+            this.lblAdjustedDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAdjustedDateTime.AutoSize = true;
+            this.lblAdjustedDateTime.Location = new System.Drawing.Point(10, 311);
+            this.lblAdjustedDateTime.Name = "lblAdjustedDateTime";
+            this.lblAdjustedDateTime.Size = new System.Drawing.Size(109, 15);
+            this.lblAdjustedDateTime.TabIndex = 27;
+            this.lblAdjustedDateTime.Text = "Adjusted date/time";
+            // 
             // hourUpDown
             // 
             this.hourUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -175,7 +185,7 @@
             // 
             this.lblCorrectionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCorrectionValue.AutoSize = true;
-            this.lblCorrectionValue.Location = new System.Drawing.Point(124, 340);
+            this.lblCorrectionValue.Location = new System.Drawing.Point(128, 340);
             this.lblCorrectionValue.Name = "lblCorrectionValue";
             this.lblCorrectionValue.Size = new System.Drawing.Size(81, 15);
             this.lblCorrectionValue.TabIndex = 36;
@@ -185,7 +195,7 @@
             // 
             this.lblCorrection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCorrection.AutoSize = true;
-            this.lblCorrection.Location = new System.Drawing.Point(57, 340);
+            this.lblCorrection.Location = new System.Drawing.Point(55, 340);
             this.lblCorrection.Name = "lblCorrection";
             this.lblCorrection.Size = new System.Drawing.Size(64, 15);
             this.lblCorrection.TabIndex = 35;
@@ -196,7 +206,7 @@
             // 
             this.lblOriginalDateTimeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblOriginalDateTimeValue.AutoSize = true;
-            this.lblOriginalDateTimeValue.Location = new System.Drawing.Point(124, 283);
+            this.lblOriginalDateTimeValue.Location = new System.Drawing.Point(128, 283);
             this.lblOriginalDateTimeValue.Name = "lblOriginalDateTimeValue";
             this.lblOriginalDateTimeValue.Size = new System.Drawing.Size(119, 15);
             this.lblOriginalDateTimeValue.TabIndex = 34;
@@ -222,21 +232,11 @@
             this.dayUpDown.Value = 11;
             this.dayUpDown.ValueChanged += new PhotoTimeSync.MyNumericUpDown.ValueChangedHandler(this.anUpDown_ValueChanged);
             // 
-            // lblAdjustedDateTime
-            // 
-            this.lblAdjustedDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAdjustedDateTime.AutoSize = true;
-            this.lblAdjustedDateTime.Location = new System.Drawing.Point(16, 311);
-            this.lblAdjustedDateTime.Name = "lblAdjustedDateTime";
-            this.lblAdjustedDateTime.Size = new System.Drawing.Size(109, 15);
-            this.lblAdjustedDateTime.TabIndex = 27;
-            this.lblAdjustedDateTime.Text = "Adjusted date/time";
-            // 
             // lblOriginalDateTime
             // 
             this.lblOriginalDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblOriginalDateTime.AutoSize = true;
-            this.lblOriginalDateTime.Location = new System.Drawing.Point(22, 283);
+            this.lblOriginalDateTime.Location = new System.Drawing.Point(15, 283);
             this.lblOriginalDateTime.Name = "lblOriginalDateTime";
             this.lblOriginalDateTime.Size = new System.Drawing.Size(104, 15);
             this.lblOriginalDateTime.TabIndex = 26;
