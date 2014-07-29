@@ -313,9 +313,9 @@
             // udPendingAlbumYear
             // 
             this.udPendingAlbumYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.udPendingAlbumYear.Location = new System.Drawing.Point(129, 385);
+            this.udPendingAlbumYear.Location = new System.Drawing.Point(115, 385);
             this.udPendingAlbumYear.Name = "udPendingAlbumYear";
-            this.udPendingAlbumYear.Size = new System.Drawing.Size(48, 26);
+            this.udPendingAlbumYear.Size = new System.Drawing.Size(62, 26);
             this.udPendingAlbumYear.TabIndex = 70;
             this.udPendingAlbumYear.Value = 2014;
             this.udPendingAlbumYear.ValueChanged += new PhotoTimeSync.MyNumericUpDown.ValueChangedHandler(this.anUpDown_ValueChanged);

@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Phototimesync-Trans-Ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExifLibrary">
@@ -173,7 +173,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon.ico" />
+    <Content Include="Phototimesync-Trans-Ico.ico" />
     <Content Include="Pics\arrow_down.png" />
     <Content Include="Pics\arrow_up.png" />
     <None Include="Pics\Header.png" />

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeaderControl));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMain = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -37,7 +36,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImage = global::PhotoTimeSync.Pics.Icon;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Location = new System.Drawing.Point(10, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
