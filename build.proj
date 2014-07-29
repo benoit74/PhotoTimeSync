@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0"
+         DefaultTargets="Build"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="NUnit"/>
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="Time"/>
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="AssemblyInfo"/>
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="Attrib"/>
+  
+  <Import Project="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.targets"/>
+
+  <PropertyGroup>
+    <OutDir Condition=" '$(OutDir)'=='' ">$(MSBuildThisFileDirectory)bin\</OutDir>
+    <Configuration Condition=" '$(Configuration)'=='' ">Release</Configuration>
+    <SourceHome Condition=" '$(SourceHome)'=='' ">$(MSBuildThisFileDirectory)src\</SourceHome>
+    <ToolsHome Condition=" '$(ToolsHome)'=='' ">$(MSBuildThisFileDirectory)tools\</ToolsHome>
+    <NUnitResultsFile>$(OutDir)nunit-result.xml</NUnitResultsFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Solution Include="$(SourceHome)*.sln">
+      <AdditionalProperties>OutDir=$(OutDir);Configuration=$(Configuration)</AdditionalProperties>
+    </Solution>
+  </ItemGroup>
+  
+  <Target Name="Version">
+
+	<Time>
+      <Output TaskParameter="Year" PropertyName="Year" />
+    </Time>
+	
+	<ItemGroup>
+      <AssemblyInfoFiles Include="**\AssemblyInfo.cs" />
+    </ItemGroup>
+
+    <Message Text="Version: $(versionnumber)"/>
+
+    <Attrib Files="%(AssemblyInfoFiles.FullPath)" ReadOnly="False" />
+				  
+    <AssemblyInfo OutputFile="%(AssemblyInfoFiles.FullPath)"
+                  CodeLanguage="CS" 
+				  AssemblyCopyright="Copyright BenoitBeraud © $(Year). All rights reserved."
+                  AssemblyTitle="" 
+				  AssemblyProduct="PhotoTimeSync" 
+				  AssemblyCompany="BenoitBeraud" 
+				  AssemblyConfiguration="$(BuildConfiguration)"
+                  AssemblyVersion="$(versionnumber)"
+                  AssemblyFileVersion="$(versionnumber)"
+                  AssemblyInformationalVersion="$(versionnumber)" />
+
+  </Target>
+  
+  <Target Name="RestorePackages">
+    <Exec Command="&quot;$(ToolsHome)NuGet.exe&quot; restore &quot;%(Solution.Identity)&quot;" />
+  </Target>
+
+  <Target Name="Clean">
+    <MSBuild Targets="Clean"
+             Projects="@(Solution)" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="RestorePackages">
+    <MSBuild Targets="Build"
+             Projects="@(Solution)" />
+  </Target>
+
+  <Target Name="Rebuild" DependsOnTargets="RestorePackages">
+    <MSBuild Targets="Rebuild"
+             Projects="@(Solution)" />
+  </Target>
+  
+  <Target Name="Jenkins">
+    <CallTarget Targets="Clean" />
+    <CallTarget Targets="Version" />
+    <CallTarget Targets="Rebuild" />
+    <CallTarget Targets="RunTests" />
+  </Target>
+  
+  <Target Name="RunTests">
+    <CreateItem Include="$(OutDir)*.Specs.dll">
+      <Output TaskParameter="Include" ItemName="TestAssembly" />
+    </CreateItem>
+    <NUnit   Assemblies="@(TestAssembly)"
+        ToolPath="C:\Program Files (x86)\NUnit 2.6.3\bin"
+        OutputXmlFile="$(NUnitResultsFile)"
+    />
+  </Target>
+
+</Project>
