@@ -200,7 +200,7 @@ namespace PhotoTimeSync
 
         private static void Log(int? customerID, int? customerUserID, TraceLevel level, string category, string step, string message, IFutureStringFormatter data)
         {
-            string source = string.Format("{0}|{1}", IPAddressUtil.GetInterNetworkIPAddress(false), System.Threading.Thread.CurrentThread.ManagedThreadId);
+            string source = string.Format("{0}|{1:0000}", IPAddressUtil.GetInterNetworkIPAddress(false), System.Threading.Thread.CurrentThread.ManagedThreadId);
             DateTime date = DateTime.Now;
             foreach(LoggerWithSwitches ls in Loggers)
             {

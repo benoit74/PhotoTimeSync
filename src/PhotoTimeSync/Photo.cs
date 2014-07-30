@@ -17,7 +17,14 @@ namespace PhotoTimeSync
             get
             {
                 if (_exifImage == null)
-                   _exifImage = ImageFile.FromFile(FullPath);
+                {
+                    _exifImage = ImageFile.FromFile(FullPath);
+                    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Property extraction done", "File: {0}", this.FullPath);
+                }
+                else
+                {
+                    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Reusing existing property", "File: {0}", this.FullPath);
+                }
                 return _exifImage;
             }
         }
@@ -54,11 +61,13 @@ namespace PhotoTimeSync
                         else
                         {
                             _initialDateTime = (DateTime)imageF.Properties[ExifTag.DateTimeOriginal].Value;
+                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Computed based on DateTimeOriginal", "File: {0}, Value: {1}", this.FullPath, _initialDateTime);
                         }
                     }
                     else
                     {
                         _initialDateTime = (DateTime)imageF.Properties[ExifTag.DateTime].Value;
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Computed based on DateTime", "File: {0}, Value: {1}", this.FullPath, _initialDateTime);
                     }
                 }
                 return _initialDateTime;

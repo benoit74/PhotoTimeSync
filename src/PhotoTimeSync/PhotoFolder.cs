@@ -31,16 +31,19 @@ namespace PhotoTimeSync
 
         public Photo AddPhoto(string file)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "PhotoFolder", "AddPhoto", "Adding new photo in folder", "Folder: {0}, File: {1}", this.FolderPath(), file);
             string fileShortName = Path.GetFileName(file);
             Photo alreadyHere = Photos.Where(p => p.fileName == fileShortName).FirstOrDefault();
             if (alreadyHere == null)
             {
                 Photo photo = new Photo(this, fileShortName);
                 this.Photos.Add(photo);
+                LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "PhotoFolder", "AddPhoto", "Photo added successfully", "Folder: {0}, File: {1}", this.FolderPath(), file);
                 return photo;
             }
             else
             {
+                LogManager.Log(System.Diagnostics.TraceLevel.Warning, "PhotoFolder", "AddPhoto", "Photo already present in folder (usually normal if filesystem is not case sensitive)", "Folder: {0}, File: {1}", this.FolderPath(), file);
                 return alreadyHere;
             }
         }

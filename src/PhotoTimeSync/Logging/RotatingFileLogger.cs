@@ -87,7 +87,7 @@ namespace PhotoTimeSync
             // Instead, use the reference provided by the sender parameter.
             BackgroundWorker bw = sender as BackgroundWorker;
 
-            LogManager.Log(System.Diagnostics.TraceLevel.Info, "RotatingFileLogger", "Generic", "BgdWorker started", "");
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "RotatingFileLogger", "Generic", "BgdWorker started", "");
 
             NextLogOfQueueContent = DateTime.Now + new TimeSpan(0, 0, 1);
 

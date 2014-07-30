@@ -35,6 +35,9 @@ namespace PhotoTimeSync
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "Program", "Init", "***************************", "");
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "Program", "Init", "PhotoTimeSync", "v{0}", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version);
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "Program", "Init", "***************************", "");
             Application.Run(new MainForm());
         }
     }

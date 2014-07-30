@@ -18,6 +18,7 @@ namespace PhotoTimeSync
 
         public UserControl4(PhotoTimeSynchronizer sync)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "Init", "", "");
             InitializeComponent();
             _sync = sync;
             lblProgress.Visible = false;
@@ -27,6 +28,7 @@ namespace PhotoTimeSync
             {
                 lstCorrections.Items.Add(new ListViewItem(new string[] {fld.FolderName, fld.CorrectionToString()}));
             }
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "Init", "OK", "");
         }
 
         private void listView1_Resize(object sender, EventArgs e)
@@ -37,15 +39,18 @@ namespace PhotoTimeSync
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "btnPrev", "Click", "");
             UserControl3 page3 = new UserControl3(_sync);
             page3.Dock = DockStyle.Fill;
             Control parent = this.Parent;
             parent.Controls.Clear();
             parent.Controls.Add(page3);
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "btnPrev", "Done", "");
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "btnNext", "Click", "");
             btnNext.Visible = false;
             btnPrev.Visible = false;
             lblProgress.Visible = true;
@@ -55,6 +60,7 @@ namespace PhotoTimeSync
             bg.RunWorkerCompleted += bg_RunWorkerCompleted;
             bg.WorkerReportsProgress = true;
             bg.RunWorkerAsync();
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "btnNext", "Done", "");
         }
 
         void bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -62,14 +68,17 @@ namespace PhotoTimeSync
             if (e.Error != null)
             {
                 lblProgress.Text = string.Format("Conversion failed ! {0}.", e.Error.Message);
+                LogManager.Log(System.Diagnostics.TraceLevel.Error, "UserControl4", "RunWorkerCompleted", "Error", "Content:\r\n{0}", ExceptionDisplayer.GetString(e.Error));
                 lblProgress.ForeColor = Color.DarkRed;
             }
             else
             {
                 int nbPhotosTreated = (int)e.Result;
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Success", "{0} photos date/time corrected", nbPhotosTreated);
                 lblProgress.Text = string.Format("Conversion completed - {0} photos date/time corrected.", nbPhotosTreated);
                 lblProgress.ForeColor = Color.DarkGreen;
                 lblStatistics.Visible = true;
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.", nbPhotosTreated, 0);
                 lblStatistics.Text = string.Format("You have corrected a total of {0} photos from {1} cameras. If you enjoy the software, please mind donating few euros to reward the work done and ongoing.", nbPhotosTreated, 0);
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
@@ -79,6 +88,7 @@ namespace PhotoTimeSync
         void bg_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblProgress.Text = string.Format("Correcting photos date/time - {0}%", e.ProgressPercentage);
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "RunWorkerCompleted", "Progress", "{0}%", e.ProgressPercentage);
         }
 
         void CountPhotosIfCorrectionNeeded(PhotoFolder fld, ref int currentCount)
@@ -97,21 +107,28 @@ namespace PhotoTimeSync
             DateTime? nextReportProgress = null;
 
             int treatedNbPhotos = 0;
-            foreach(PhotoFolder fld in _sync.Folders)
+            foreach (PhotoFolder fld in _sync.Folders)
             {
-                foreach(Photo photo in fld.Photos)
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "DoWork", "Processing", "Folder {0}", fld.FolderName);
+                foreach (Photo photo in fld.Photos)
                 {
-                    if(worker.WorkerReportsProgress && ( nextReportProgress == null || DateTime.Now > nextReportProgress))
+                    if (worker.WorkerReportsProgress && (nextReportProgress == null || DateTime.Now > nextReportProgress))
                     {
                         if (totalNbPhotos > 0)
                             worker.ReportProgress(treatedNbPhotos * 100 / totalNbPhotos);
                         nextReportProgress = DateTime.Now + new TimeSpan(0, 0, 1);
                     }
+                    // Do this check for each photos to update correctly progress percentage ...
                     if (fld.Correction.TotalSeconds != 0)
                     {
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Processing", "Photo {0}", photo.fileName);
                         photo.ExifImage.Properties.Set(ExifTag.DateTime, photo.InitialDateTime + fld.Correction);
                         photo.ExifImage.Save(photo.FullPath);
                         treatedNbPhotos++;
+                    }
+                    else
+                    {
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Correction is 0", "Photo {0}", photo.fileName);
                     }
                 }
             }
@@ -120,6 +137,7 @@ namespace PhotoTimeSync
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "Exit", "", "");
             Application.Exit();
         }
 

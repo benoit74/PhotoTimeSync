@@ -21,6 +21,7 @@ namespace PhotoTimeSync
         
         public UserControl2(PhotoTimeSynchronizer sync)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl2", "Init", "", "");
             InitializeComponent();
             _sync = sync;
             lstFolders.Items.Clear();
@@ -31,16 +32,19 @@ namespace PhotoTimeSync
             }
             btnNext.Enabled = false;
             pnlPictureDetail.Visible = false;
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "Init", "OK", "");
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl2", "btnPrev", "Click", ""); 
             CleanResources();
             UserControl1 page1 = new UserControl1(_sync);
             page1.Dock = DockStyle.Fill;
             Control parent = this.Parent;
             parent.Controls.Clear();
             parent.Controls.Add(page1);
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "btnPrev", "Done", "");
         }
 
         private void lstFolders_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,11 +52,14 @@ namespace PhotoTimeSync
             if (lstFolders.SelectedItem == null)
                 return;
 
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "lstFolders", "Click", "");
             lstPictures.Items.Clear();
             string fldName = (string)lstFolders.SelectedItem;
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "lstFolders", "", "MainFolder:{0}", fldName);
             PhotoFolder fld = _sync.Folders.Where(f => f.FolderName == fldName).FirstOrDefault();
             if (fld == null)
             {
+                LogManager.Log(System.Diagnostics.TraceLevel.Warning, "UserControl2", "lstFolders", "Failed to find folder in list!", "");
                 btnNext.Enabled = false;
                 return;
             }
@@ -62,10 +69,12 @@ namespace PhotoTimeSync
             {
                 lstPictures.Items.Add(ph.fileName);
             }
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "lstFolders", "Done", "");
         }
 
         private void lstPictures_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl2", "lstPictures", "SelectionChanged", "");
             string fldName = (string)lstFolders.SelectedItem;
             PhotoFolder fld = _sync.Folders.Where(f => f.FolderName == fldName).FirstOrDefault();
             if (fld == null)
@@ -87,6 +96,7 @@ namespace PhotoTimeSync
             hourUpDown.Value = correctedDateTime.Hour;
             minuteUpDown.Value = correctedDateTime.Minute;
             secondUpDown.Value = correctedDateTime.Second;
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "lstPictures", "Done", "Photo:{0}, Corrected photo time: {1}", photo.FullPath, correctedDateTime.ToString());
             this.Refresh();
         }
 
@@ -108,10 +118,12 @@ namespace PhotoTimeSync
                                                       hourUpDown.Value, minuteUpDown.Value, secondUpDown.Value);
             _sync.CurrentPendingFolder.Correction = correctedDateTime - _currentPhoto.InitialDateTime;
             lblCorrectionValue.Text = _sync.CurrentPendingFolder.CorrectionToString();
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "MyNumericUpDown", "Value changed", "Name:{0}, Value:{1}", sender.Name, lblCorrectionValue.Text);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl2", "btnNext", "Click", "");
             CleanResources();
             _sync.CurrentPendingFolder.IsSynced = true;
             UserControl3 page3 = new UserControl3(_sync);
@@ -119,6 +131,7 @@ namespace PhotoTimeSync
             Control parent = this.Parent;
             parent.Controls.Clear();
             parent.Controls.Add(page3);
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "btnNext", "Done", "");
         }
 
         private void CleanResources()

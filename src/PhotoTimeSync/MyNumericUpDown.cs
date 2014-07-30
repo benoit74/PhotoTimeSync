@@ -44,11 +44,13 @@ namespace PhotoTimeSync
         private void btnDown_Click(object sender, EventArgs e)
         {
             Value -= 1;
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "MyNumericUpDown", "Decrement", "", "Control name: {0}, New value: {1}", this.Name, this.Value );
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
             Value += 1;
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "MyNumericUpDown", "Increment", "", "Control name: {0}, New value: {1}", this.Name, this.Value);
         }
 
 
