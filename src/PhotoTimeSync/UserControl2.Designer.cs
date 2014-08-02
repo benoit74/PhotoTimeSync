@@ -251,6 +251,7 @@
             this.pnlPicturePreview.Name = "pnlPicturePreview";
             this.pnlPicturePreview.Size = new System.Drawing.Size(375, 263);
             this.pnlPicturePreview.TabIndex = 25;
+            this.pnlPicturePreview.SizeChanged += new System.EventHandler(this.pnlPicturePreview_SizeChanged);
             this.pnlPicturePreview.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPicturePreview_Paint);
             // 
             // headerControl1

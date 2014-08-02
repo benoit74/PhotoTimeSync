@@ -126,6 +126,7 @@ namespace PhotoTimeSync
             RefreshPendingCorrectionBasedOnCurrentPhotos();
             btnSyncAlbumPrevPic.Enabled = (_currentSyncPhoto != null) && (_currentSyncPhotoSkip > 0);
             btnSyncAlbumNextPic.Enabled = (_currentSyncPhoto != null) && (_currentSyncPhotoSkip < _sync.CurrentSyncFolder.Photos.Count - 1);
+            pnlSyncAlbumPic.Invalidate();
             this.Refresh();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl3", "SyncPhotoIndexHasChanged", "Done", "");
         }
@@ -160,6 +161,7 @@ namespace PhotoTimeSync
             RefreshPendingCorrectionBasedOnCurrentPhotos();
             btnPendingAlbumPrevPic.Enabled = (_currentPendingPhoto != null) && (_currentPendingPhotoSkip > 0);
             btnPendingAlbumNextPic.Enabled = (_currentPendingPhoto != null) && (_currentPendingPhotoSkip < _sync.CurrentPendingFolder.Photos.Count - 1);
+            pnlPendingAlbumPic.Invalidate();
             this.Refresh();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl3", "PendingPhotoIndexHasChanged", "Done", "");
         }
@@ -247,6 +249,8 @@ namespace PhotoTimeSync
             _currentPendingPhotoSkip = 0;
             PendingPhotoIndexHasChanged();
             RefreshAlbumsLists();
+            pnlSyncAlbumPic.Invalidate();
+            pnlPendingAlbumPic.Invalidate();
             this.Refresh();
         }
 
@@ -340,5 +344,16 @@ namespace PhotoTimeSync
             return (keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down);
             //return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void pnlPendingAlbumPic_SizeChanged(object sender, EventArgs e)
+        {
+            pnlPendingAlbumPic.Invalidate();
+        }
+
+        private void pnlSyncAlbumPic_SizeChanged(object sender, EventArgs e)
+        {
+            pnlSyncAlbumPic.Invalidate();
+        }
+
     }
 }

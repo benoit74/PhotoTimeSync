@@ -97,6 +97,7 @@ namespace PhotoTimeSync
             minuteUpDown.Value = correctedDateTime.Minute;
             secondUpDown.Value = correctedDateTime.Second;
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "lstPictures", "Done", "Photo:{0}, Corrected photo time: {1}", photo.FullPath, correctedDateTime.ToString());
+            pnlPicturePreview.Invalidate();
             this.Refresh();
         }
 
@@ -138,6 +139,11 @@ namespace PhotoTimeSync
         {
             if (_currentImage != null)
                 _currentImage.Dispose();
+        }
+
+        private void pnlPicturePreview_SizeChanged(object sender, EventArgs e)
+        {
+            pnlPicturePreview.Invalidate();
         }
 
 

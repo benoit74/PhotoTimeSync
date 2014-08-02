@@ -179,12 +179,6 @@
     <Content Include="Pics\arrow_up.png" />
     <None Include="Pics\Header.png" />
     <None Include="Pics\Icon.png" />
-    <Content Include="sample.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sample2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

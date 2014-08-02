@@ -257,6 +257,7 @@
             this.pnlSyncAlbumPic.Name = "pnlSyncAlbumPic";
             this.pnlSyncAlbumPic.Size = new System.Drawing.Size(378, 209);
             this.pnlSyncAlbumPic.TabIndex = 65;
+            this.pnlSyncAlbumPic.SizeChanged += new System.EventHandler(this.pnlSyncAlbumPic_SizeChanged);
             this.pnlSyncAlbumPic.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSyncAlbumPic_Paint);
             // 
             // lblPendingAlbums
@@ -436,6 +437,7 @@
             this.pnlPendingAlbumPic.Name = "pnlPendingAlbumPic";
             this.pnlPendingAlbumPic.Size = new System.Drawing.Size(372, 209);
             this.pnlPendingAlbumPic.TabIndex = 63;
+            this.pnlPendingAlbumPic.SizeChanged += new System.EventHandler(this.pnlPendingAlbumPic_SizeChanged);
             this.pnlPendingAlbumPic.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPendingAlbumPic_Paint);
             // 
             // btnPendingAlbumPrevPic

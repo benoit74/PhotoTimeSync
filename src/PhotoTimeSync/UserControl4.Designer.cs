@@ -149,7 +149,7 @@
             this.lblStatistics.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.lblStatistics.Location = new System.Drawing.Point(3, 470);
             this.lblStatistics.Name = "lblStatistics";
-            this.lblStatistics.Size = new System.Drawing.Size(646, 27);
+            this.lblStatistics.Size = new System.Drawing.Size(646, 52);
             this.lblStatistics.TabIndex = 20;
             this.lblStatistics.Text = "label2";
             this.lblStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
