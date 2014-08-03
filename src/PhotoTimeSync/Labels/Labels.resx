@@ -296,9 +296,9 @@
     <value>Conversion failed ! {0}.</value>
     <comment>Text displayed when conversion failed. {0} is replaced by the error message.</comment>
   </data>
-  <data name="Screen4_FinalWords" xml:space="preserve">
-    <value>You have corrected a total of {0} photos from {1} cameras.\r\nIf you enjoy the software, please support us and spread the word.</value>
-    <comment>Final words text. {0} is replaced by the total amount of photos corrected by current user. {1} is replaced by the total amount of folders corrected.</comment>
+  <data name="Screen4_FinalWords_Part1" xml:space="preserve">
+    <value>You have corrected a total of {0} photos from {1} cameras.</value>
+    <comment>Final words text - part 1. {0} is replaced by the total amount of photos corrected by current user. {1} is replaced by the total amount of folders corrected.</comment>
   </data>
   <data name="Screen4_Header" xml:space="preserve">
     <value>Apply correction to photos</value>
@@ -311,5 +311,9 @@
   <data name="Screen4_ProgressText" xml:space="preserve">
     <value>Correcting photos date/time - {0}%</value>
     <comment>Text displayed when conversion is ongoing. {0} is replaced by the percentage of photos modified.</comment>
+  </data>
+  <data name="Screen4_FinalWords_Part2" xml:space="preserve">
+    <value>If you enjoy the software, please support us and spread the word.</value>
+    <comment>Final words text - part 2.</comment>
   </data>
 </root>

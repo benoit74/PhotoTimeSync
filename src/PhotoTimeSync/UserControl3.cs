@@ -95,7 +95,7 @@ namespace PhotoTimeSync
             _sync.CurrentPendingFolder = fld;
             _currentPendingPhotoSkip = 0;
             PendingPhotoIndexHasChanged();
-            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl3", "lstPendingAlbums", "Index Changed done", "CurrentSyncFolder: {0}", _sync.CurrentSyncFolder.FolderPath());
+            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl3", "lstPendingAlbums", "Index Changed done", "CurrentSyncFolder: {0}", _sync.CurrentPendingFolder.FolderPath());
         }
 
         private void SyncPhotoIndexHasChanged()

@@ -35,10 +35,10 @@
             this.lstFolders = new System.Windows.Forms.ListBox();
             this.lstPictures = new System.Windows.Forms.ListBox();
             this.pnlPictureDetail = new System.Windows.Forms.Panel();
+            this.yearUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.lblAdjustedDateTime = new System.Windows.Forms.Label();
             this.hourUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.minuteUpDown = new PhotoTimeSync.MyNumericUpDown();
-            this.yearUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.monthUpDown = new PhotoTimeSync.MyNumericUpDown();
             this.lblCorrectionValue = new System.Windows.Forms.Label();
             this.lblCorrection = new System.Windows.Forms.Label();
@@ -54,9 +54,9 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(487, 455);
+            this.btnNext.Location = new System.Drawing.Point(457, 455);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(70, 22);
+            this.btnNext.Size = new System.Drawing.Size(100, 22);
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -67,7 +67,7 @@
             this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrev.Location = new System.Drawing.Point(3, 455);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(70, 22);
+            this.btnPrev.Size = new System.Drawing.Size(100, 22);
             this.btnPrev.TabIndex = 7;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
@@ -131,20 +131,32 @@
             this.pnlPictureDetail.Size = new System.Drawing.Size(375, 365);
             this.pnlPictureDetail.TabIndex = 0;
             // 
+            // yearUpDown
+            // 
+            this.yearUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.yearUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.yearUpDown.Location = new System.Drawing.Point(135, 305);
+            this.yearUpDown.Name = "yearUpDown";
+            this.yearUpDown.Size = new System.Drawing.Size(53, 26);
+            this.yearUpDown.TabIndex = 28;
+            this.yearUpDown.Value = 2014;
+            this.yearUpDown.ValueChanged += new PhotoTimeSync.MyNumericUpDown.ValueChangedHandler(this.anUpDown_ValueChanged);
+            // 
             // lblAdjustedDateTime
             // 
             this.lblAdjustedDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAdjustedDateTime.AutoSize = true;
-            this.lblAdjustedDateTime.Location = new System.Drawing.Point(10, 311);
+            this.lblAdjustedDateTime.Location = new System.Drawing.Point(0, 306);
             this.lblAdjustedDateTime.Name = "lblAdjustedDateTime";
-            this.lblAdjustedDateTime.Size = new System.Drawing.Size(109, 15);
+            this.lblAdjustedDateTime.Size = new System.Drawing.Size(135, 24);
             this.lblAdjustedDateTime.TabIndex = 27;
             this.lblAdjustedDateTime.Text = "Adjusted date/time";
+            this.lblAdjustedDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // hourUpDown
             // 
             this.hourUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.hourUpDown.Location = new System.Drawing.Point(236, 305);
+            this.hourUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.hourUpDown.Location = new System.Drawing.Point(252, 305);
             this.hourUpDown.Name = "hourUpDown";
             this.hourUpDown.Size = new System.Drawing.Size(33, 26);
             this.hourUpDown.TabIndex = 31;
@@ -154,27 +166,19 @@
             // minuteUpDown
             // 
             this.minuteUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.minuteUpDown.Location = new System.Drawing.Point(266, 305);
+            this.minuteUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.minuteUpDown.Location = new System.Drawing.Point(282, 305);
             this.minuteUpDown.Name = "minuteUpDown";
             this.minuteUpDown.Size = new System.Drawing.Size(33, 26);
             this.minuteUpDown.TabIndex = 32;
             this.minuteUpDown.Value = 11;
             this.minuteUpDown.ValueChanged += new PhotoTimeSync.MyNumericUpDown.ValueChangedHandler(this.anUpDown_ValueChanged);
             // 
-            // yearUpDown
-            // 
-            this.yearUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.yearUpDown.Location = new System.Drawing.Point(119, 305);
-            this.yearUpDown.Name = "yearUpDown";
-            this.yearUpDown.Size = new System.Drawing.Size(53, 26);
-            this.yearUpDown.TabIndex = 28;
-            this.yearUpDown.Value = 2014;
-            this.yearUpDown.ValueChanged += new PhotoTimeSync.MyNumericUpDown.ValueChangedHandler(this.anUpDown_ValueChanged);
-            // 
             // monthUpDown
             // 
             this.monthUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.monthUpDown.Location = new System.Drawing.Point(169, 305);
+            this.monthUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.monthUpDown.Location = new System.Drawing.Point(185, 305);
             this.monthUpDown.Name = "monthUpDown";
             this.monthUpDown.Size = new System.Drawing.Size(33, 26);
             this.monthUpDown.TabIndex = 29;
@@ -185,7 +189,7 @@
             // 
             this.lblCorrectionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCorrectionValue.AutoSize = true;
-            this.lblCorrectionValue.Location = new System.Drawing.Point(128, 340);
+            this.lblCorrectionValue.Location = new System.Drawing.Point(144, 339);
             this.lblCorrectionValue.Name = "lblCorrectionValue";
             this.lblCorrectionValue.Size = new System.Drawing.Size(81, 15);
             this.lblCorrectionValue.TabIndex = 36;
@@ -194,10 +198,9 @@
             // lblCorrection
             // 
             this.lblCorrection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCorrection.AutoSize = true;
-            this.lblCorrection.Location = new System.Drawing.Point(55, 340);
+            this.lblCorrection.Location = new System.Drawing.Point(0, 334);
             this.lblCorrection.Name = "lblCorrection";
-            this.lblCorrection.Size = new System.Drawing.Size(64, 15);
+            this.lblCorrection.Size = new System.Drawing.Size(135, 24);
             this.lblCorrection.TabIndex = 35;
             this.lblCorrection.Text = "Correction";
             this.lblCorrection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -206,7 +209,7 @@
             // 
             this.lblOriginalDateTimeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblOriginalDateTimeValue.AutoSize = true;
-            this.lblOriginalDateTimeValue.Location = new System.Drawing.Point(128, 283);
+            this.lblOriginalDateTimeValue.Location = new System.Drawing.Point(144, 283);
             this.lblOriginalDateTimeValue.Name = "lblOriginalDateTimeValue";
             this.lblOriginalDateTimeValue.Size = new System.Drawing.Size(119, 15);
             this.lblOriginalDateTimeValue.TabIndex = 34;
@@ -215,7 +218,8 @@
             // secondUpDown
             // 
             this.secondUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.secondUpDown.Location = new System.Drawing.Point(296, 305);
+            this.secondUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.secondUpDown.Location = new System.Drawing.Point(312, 305);
             this.secondUpDown.Name = "secondUpDown";
             this.secondUpDown.Size = new System.Drawing.Size(33, 26);
             this.secondUpDown.TabIndex = 33;
@@ -225,7 +229,8 @@
             // dayUpDown
             // 
             this.dayUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dayUpDown.Location = new System.Drawing.Point(199, 305);
+            this.dayUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.dayUpDown.Location = new System.Drawing.Point(215, 305);
             this.dayUpDown.Name = "dayUpDown";
             this.dayUpDown.Size = new System.Drawing.Size(33, 26);
             this.dayUpDown.TabIndex = 30;
@@ -235,12 +240,12 @@
             // lblOriginalDateTime
             // 
             this.lblOriginalDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblOriginalDateTime.AutoSize = true;
-            this.lblOriginalDateTime.Location = new System.Drawing.Point(15, 283);
+            this.lblOriginalDateTime.Location = new System.Drawing.Point(0, 283);
             this.lblOriginalDateTime.Name = "lblOriginalDateTime";
-            this.lblOriginalDateTime.Size = new System.Drawing.Size(104, 15);
+            this.lblOriginalDateTime.Size = new System.Drawing.Size(135, 15);
             this.lblOriginalDateTime.TabIndex = 26;
             this.lblOriginalDateTime.Text = "Original date/time";
+            this.lblOriginalDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlPicturePreview
             // 

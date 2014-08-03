@@ -44,16 +44,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFolder.Location = new System.Drawing.Point(3, 56);
             this.txtFolder.Name = "txtFolder";
-            this.txtFolder.Size = new System.Drawing.Size(478, 21);
+            this.txtFolder.Size = new System.Drawing.Size(460, 21);
             this.txtFolder.TabIndex = 1;
             this.txtFolder.TextChanged += new System.EventHandler(this.txtFolder_TextChanged);
             // 
             // btnBrowse
             // 
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(487, 55);
+            this.btnBrowse.Location = new System.Drawing.Point(469, 55);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(70, 22);
+            this.btnBrowse.Size = new System.Drawing.Size(90, 22);
             this.btnBrowse.TabIndex = 2;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -62,9 +62,9 @@
             // btnImportAndCheck
             // 
             this.btnImportAndCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnImportAndCheck.Location = new System.Drawing.Point(172, 88);
+            this.btnImportAndCheck.Location = new System.Drawing.Point(133, 88);
             this.btnImportAndCheck.Name = "btnImportAndCheck";
-            this.btnImportAndCheck.Size = new System.Drawing.Size(217, 22);
+            this.btnImportAndCheck.Size = new System.Drawing.Size(297, 22);
             this.btnImportAndCheck.TabIndex = 3;
             this.btnImportAndCheck.Text = "Import and check folder content";
             this.btnImportAndCheck.UseVisualStyleBackColor = true;
@@ -79,15 +79,15 @@
             this.txtImportResult.Multiline = true;
             this.txtImportResult.Name = "txtImportResult";
             this.txtImportResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtImportResult.Size = new System.Drawing.Size(554, 330);
+            this.txtImportResult.Size = new System.Drawing.Size(556, 322);
             this.txtImportResult.TabIndex = 4;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(487, 455);
+            this.btnNext.Location = new System.Drawing.Point(459, 447);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(70, 22);
+            this.btnNext.Size = new System.Drawing.Size(100, 22);
             this.btnNext.TabIndex = 5;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblError.Location = new System.Drawing.Point(12, 454);
+            this.lblError.Location = new System.Drawing.Point(12, 446);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(136, 15);
             this.lblError.TabIndex = 6;
@@ -116,7 +116,7 @@
             this.headerControl1.Location = new System.Drawing.Point(0, 0);
             this.headerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.headerControl1.Name = "headerControl1";
-            this.headerControl1.Size = new System.Drawing.Size(560, 44);
+            this.headerControl1.Size = new System.Drawing.Size(562, 44);
             this.headerControl1.TabIndex = 8;
             // 
             // UserControl1
@@ -132,7 +132,7 @@
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(350, 250);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(560, 480);
+            this.Size = new System.Drawing.Size(562, 472);
             this.ResumeLayout(false);
             this.PerformLayout();
 

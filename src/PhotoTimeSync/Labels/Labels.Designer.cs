@@ -466,11 +466,20 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You have corrected a total of {0} photos from {1} cameras.\r\nIf you enjoy the software, please support us and spread the word..
+        ///   Looks up a localized string similar to You have corrected a total of {0} photos from {1} cameras..
         /// </summary>
-        internal static string Screen4_FinalWords {
+        internal static string Screen4_FinalWords_Part1 {
             get {
-                return ResourceManager.GetString("Screen4_FinalWords", resourceCulture);
+                return ResourceManager.GetString("Screen4_FinalWords_Part1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you enjoy the software, please support us and spread the word..
+        /// </summary>
+        internal static string Screen4_FinalWords_Part2 {
+            get {
+                return ResourceManager.GetString("Screen4_FinalWords_Part2", resourceCulture);
             }
         }
         

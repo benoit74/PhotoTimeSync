@@ -88,7 +88,7 @@
             this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrev.Location = new System.Drawing.Point(3, 525);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(82, 26);
+            this.btnPrev.Size = new System.Drawing.Size(100, 23);
             this.btnPrev.TabIndex = 10;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
@@ -97,9 +97,9 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(568, 525);
+            this.btnNext.Location = new System.Drawing.Point(538, 525);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(82, 26);
+            this.btnNext.Size = new System.Drawing.Size(100, 23);
             this.btnNext.TabIndex = 12;
             this.btnNext.Text = "Go !";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -120,9 +120,9 @@
             // btnQuit
             // 
             this.btnQuit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnQuit.Location = new System.Drawing.Point(286, 525);
+            this.btnQuit.Location = new System.Drawing.Point(276, 525);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(82, 26);
+            this.btnQuit.Size = new System.Drawing.Size(100, 23);
             this.btnQuit.TabIndex = 14;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -172,6 +172,7 @@
             this.Name = "UserControl4";
             this.Size = new System.Drawing.Size(653, 554);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

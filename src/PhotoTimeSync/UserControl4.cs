@@ -80,7 +80,8 @@ namespace PhotoTimeSync
                 lblProgress.ForeColor = Color.DarkGreen;
                 lblStatistics.Visible = true;
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.", nbPhotosTreated, 0);
-                lblStatistics.Text = string.Format(Labels.Labels.Screen4_FinalWords, nbPhotosTreated, 0);
+                lblStatistics.Text = string.Format(Labels.Labels.Screen4_FinalWords_Part1
+                    + Environment.NewLine + Labels.Labels.Screen4_FinalWords_Part2, nbPhotosTreated, 0);
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
             btnQuit.Visible = true;

@@ -27,8 +27,7 @@ namespace PhotoTimeSync
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(page1);
 
-            //french disabled since translation is not available so far
-            //comboBoxWithImage1.Items.Add(new ComboBoxWithImage.DropDownItem() { Value = "Français (France)", Image = PhotoTimeSync.Pics.flag_france, Tag = "fr-FR" });
+            comboBoxWithImage1.Items.Add(new ComboBoxWithImage.DropDownItem() { Value = "Français (France)", Image = PhotoTimeSync.Pics.flag_france, Tag = "fr-FR" });
             comboBoxWithImage1.Items.Add(new ComboBoxWithImage.DropDownItem() { Value = "English (United-States)", Image = PhotoTimeSync.Pics.flag_usa, Tag = "en-US" });
             
             // Search for current language in combobox to select it

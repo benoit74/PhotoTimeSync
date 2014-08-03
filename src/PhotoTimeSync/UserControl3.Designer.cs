@@ -73,7 +73,7 @@
             this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrev.Location = new System.Drawing.Point(3, 571);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(70, 23);
+            this.btnPrev.Size = new System.Drawing.Size(100, 23);
             this.btnPrev.TabIndex = 9;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(815, 571);
+            this.btnNext.Location = new System.Drawing.Point(785, 571);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(70, 23);
+            this.btnNext.Size = new System.Drawing.Size(100, 23);
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -153,12 +153,12 @@
             // lblSyncAlbums
             // 
             this.lblSyncAlbums.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblSyncAlbums.AutoSize = true;
-            this.lblSyncAlbums.Location = new System.Drawing.Point(166, 10);
+            this.lblSyncAlbums.Location = new System.Drawing.Point(6, 10);
             this.lblSyncAlbums.Name = "lblSyncAlbums";
-            this.lblSyncAlbums.Size = new System.Drawing.Size(124, 15);
+            this.lblSyncAlbums.Size = new System.Drawing.Size(431, 15);
             this.lblSyncAlbums.TabIndex = 74;
             this.lblSyncAlbums.Text = "Synchronized Albums";
+            this.lblSyncAlbums.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lstSyncAlbums
             // 
@@ -176,7 +176,7 @@
             // 
             this.lblAbsCorrectionSyncAlbumValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAbsCorrectionSyncAlbumValue.AutoSize = true;
-            this.lblAbsCorrectionSyncAlbumValue.Location = new System.Drawing.Point(147, 406);
+            this.lblAbsCorrectionSyncAlbumValue.Location = new System.Drawing.Point(155, 406);
             this.lblAbsCorrectionSyncAlbumValue.Name = "lblAbsCorrectionSyncAlbumValue";
             this.lblAbsCorrectionSyncAlbumValue.Size = new System.Drawing.Size(81, 15);
             this.lblAbsCorrectionSyncAlbumValue.TabIndex = 72;
@@ -185,20 +185,19 @@
             // lblAdjustedDateTimeSyncAlbum
             // 
             this.lblAdjustedDateTimeSyncAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAdjustedDateTimeSyncAlbum.AutoSize = true;
-            this.lblAdjustedDateTimeSyncAlbum.Location = new System.Drawing.Point(28, 377);
+            this.lblAdjustedDateTimeSyncAlbum.Location = new System.Drawing.Point(0, 377);
             this.lblAdjustedDateTimeSyncAlbum.Name = "lblAdjustedDateTimeSyncAlbum";
-            this.lblAdjustedDateTimeSyncAlbum.Size = new System.Drawing.Size(109, 15);
+            this.lblAdjustedDateTimeSyncAlbum.Size = new System.Drawing.Size(146, 15);
             this.lblAdjustedDateTimeSyncAlbum.TabIndex = 69;
             this.lblAdjustedDateTimeSyncAlbum.Text = "Adjusted date/time";
+            this.lblAdjustedDateTimeSyncAlbum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblAbsCorrectionSyncAlbum
             // 
             this.lblAbsCorrectionSyncAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAbsCorrectionSyncAlbum.AutoSize = true;
-            this.lblAbsCorrectionSyncAlbum.Location = new System.Drawing.Point(25, 406);
+            this.lblAbsCorrectionSyncAlbum.Location = new System.Drawing.Point(0, 406);
             this.lblAbsCorrectionSyncAlbum.Name = "lblAbsCorrectionSyncAlbum";
-            this.lblAbsCorrectionSyncAlbum.Size = new System.Drawing.Size(112, 15);
+            this.lblAbsCorrectionSyncAlbum.Size = new System.Drawing.Size(146, 15);
             this.lblAbsCorrectionSyncAlbum.TabIndex = 71;
             this.lblAbsCorrectionSyncAlbum.Text = "Absolute correction";
             this.lblAbsCorrectionSyncAlbum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -207,7 +206,7 @@
             // 
             this.lblAdjustedDateTimeSyncAlbumValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAdjustedDateTimeSyncAlbumValue.AutoSize = true;
-            this.lblAdjustedDateTimeSyncAlbumValue.Location = new System.Drawing.Point(145, 377);
+            this.lblAdjustedDateTimeSyncAlbumValue.Location = new System.Drawing.Point(154, 377);
             this.lblAdjustedDateTimeSyncAlbumValue.Name = "lblAdjustedDateTimeSyncAlbumValue";
             this.lblAdjustedDateTimeSyncAlbumValue.Size = new System.Drawing.Size(119, 15);
             this.lblAdjustedDateTimeSyncAlbumValue.TabIndex = 70;
@@ -263,20 +262,19 @@
             // lblPendingAlbums
             // 
             this.lblPendingAlbums.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblPendingAlbums.AutoSize = true;
-            this.lblPendingAlbums.Location = new System.Drawing.Point(178, 10);
+            this.lblPendingAlbums.Location = new System.Drawing.Point(6, 10);
             this.lblPendingAlbums.Name = "lblPendingAlbums";
-            this.lblPendingAlbums.Size = new System.Drawing.Size(97, 15);
+            this.lblPendingAlbums.Size = new System.Drawing.Size(428, 15);
             this.lblPendingAlbums.TabIndex = 62;
             this.lblPendingAlbums.Text = "Pending Albums";
+            this.lblPendingAlbums.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPendingAlbumAbsCorrection
             // 
             this.lblPendingAlbumAbsCorrection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPendingAlbumAbsCorrection.AutoSize = true;
-            this.lblPendingAlbumAbsCorrection.Location = new System.Drawing.Point(19, 419);
+            this.lblPendingAlbumAbsCorrection.Location = new System.Drawing.Point(3, 419);
             this.lblPendingAlbumAbsCorrection.Name = "lblPendingAlbumAbsCorrection";
-            this.lblPendingAlbumAbsCorrection.Size = new System.Drawing.Size(112, 15);
+            this.lblPendingAlbumAbsCorrection.Size = new System.Drawing.Size(145, 15);
             this.lblPendingAlbumAbsCorrection.TabIndex = 77;
             this.lblPendingAlbumAbsCorrection.Text = "Absolute correction";
             this.lblPendingAlbumAbsCorrection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -285,7 +283,7 @@
             // 
             this.lblPendingAlbumAbsCorrectionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPendingAlbumAbsCorrectionValue.AutoSize = true;
-            this.lblPendingAlbumAbsCorrectionValue.Location = new System.Drawing.Point(141, 419);
+            this.lblPendingAlbumAbsCorrectionValue.Location = new System.Drawing.Point(158, 419);
             this.lblPendingAlbumAbsCorrectionValue.Name = "lblPendingAlbumAbsCorrectionValue";
             this.lblPendingAlbumAbsCorrectionValue.Size = new System.Drawing.Size(81, 15);
             this.lblPendingAlbumAbsCorrectionValue.TabIndex = 78;
@@ -294,28 +292,28 @@
             // lblPendingAlbumOriginalDateTime
             // 
             this.lblPendingAlbumOriginalDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPendingAlbumOriginalDateTime.AutoSize = true;
-            this.lblPendingAlbumOriginalDateTime.Location = new System.Drawing.Point(27, 362);
+            this.lblPendingAlbumOriginalDateTime.Location = new System.Drawing.Point(3, 362);
             this.lblPendingAlbumOriginalDateTime.Name = "lblPendingAlbumOriginalDateTime";
-            this.lblPendingAlbumOriginalDateTime.Size = new System.Drawing.Size(104, 15);
+            this.lblPendingAlbumOriginalDateTime.Size = new System.Drawing.Size(145, 15);
             this.lblPendingAlbumOriginalDateTime.TabIndex = 68;
             this.lblPendingAlbumOriginalDateTime.Text = "Original date/time";
+            this.lblPendingAlbumOriginalDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPendingAlbumAdjustedDateTime
             // 
             this.lblPendingAlbumAdjustedDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPendingAlbumAdjustedDateTime.AutoSize = true;
-            this.lblPendingAlbumAdjustedDateTime.Location = new System.Drawing.Point(22, 390);
+            this.lblPendingAlbumAdjustedDateTime.Location = new System.Drawing.Point(3, 387);
             this.lblPendingAlbumAdjustedDateTime.Name = "lblPendingAlbumAdjustedDateTime";
-            this.lblPendingAlbumAdjustedDateTime.Size = new System.Drawing.Size(109, 15);
+            this.lblPendingAlbumAdjustedDateTime.Size = new System.Drawing.Size(145, 20);
             this.lblPendingAlbumAdjustedDateTime.TabIndex = 69;
             this.lblPendingAlbumAdjustedDateTime.Text = "Adjusted date/time";
+            this.lblPendingAlbumAdjustedDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // udPendingAlbumYear
             // 
             this.udPendingAlbumYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.udPendingAlbumYear.BackColor = System.Drawing.Color.Transparent;
-            this.udPendingAlbumYear.Location = new System.Drawing.Point(124, 385);
+            this.udPendingAlbumYear.Location = new System.Drawing.Point(141, 385);
             this.udPendingAlbumYear.Name = "udPendingAlbumYear";
             this.udPendingAlbumYear.Size = new System.Drawing.Size(62, 26);
             this.udPendingAlbumYear.TabIndex = 70;
@@ -326,7 +324,7 @@
             // 
             this.udPendingAlbumMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.udPendingAlbumMonth.BackColor = System.Drawing.Color.Transparent;
-            this.udPendingAlbumMonth.Location = new System.Drawing.Point(171, 385);
+            this.udPendingAlbumMonth.Location = new System.Drawing.Point(188, 385);
             this.udPendingAlbumMonth.Name = "udPendingAlbumMonth";
             this.udPendingAlbumMonth.Size = new System.Drawing.Size(45, 26);
             this.udPendingAlbumMonth.TabIndex = 71;
@@ -337,7 +335,7 @@
             // 
             this.udPendingAlbumDay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.udPendingAlbumDay.BackColor = System.Drawing.Color.Transparent;
-            this.udPendingAlbumDay.Location = new System.Drawing.Point(204, 385);
+            this.udPendingAlbumDay.Location = new System.Drawing.Point(221, 385);
             this.udPendingAlbumDay.Name = "udPendingAlbumDay";
             this.udPendingAlbumDay.Size = new System.Drawing.Size(43, 26);
             this.udPendingAlbumDay.TabIndex = 72;
@@ -348,7 +346,7 @@
             // 
             this.udPendingAlbumHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.udPendingAlbumHour.BackColor = System.Drawing.Color.Transparent;
-            this.udPendingAlbumHour.Location = new System.Drawing.Point(244, 385);
+            this.udPendingAlbumHour.Location = new System.Drawing.Point(261, 385);
             this.udPendingAlbumHour.Name = "udPendingAlbumHour";
             this.udPendingAlbumHour.Size = new System.Drawing.Size(42, 26);
             this.udPendingAlbumHour.TabIndex = 73;
@@ -359,7 +357,7 @@
             // 
             this.udPendingAlbumMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.udPendingAlbumMinute.BackColor = System.Drawing.Color.Transparent;
-            this.udPendingAlbumMinute.Location = new System.Drawing.Point(274, 385);
+            this.udPendingAlbumMinute.Location = new System.Drawing.Point(291, 385);
             this.udPendingAlbumMinute.Name = "udPendingAlbumMinute";
             this.udPendingAlbumMinute.Size = new System.Drawing.Size(43, 26);
             this.udPendingAlbumMinute.TabIndex = 74;
@@ -370,7 +368,7 @@
             // 
             this.udPendingAlbumSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.udPendingAlbumSecond.BackColor = System.Drawing.Color.Transparent;
-            this.udPendingAlbumSecond.Location = new System.Drawing.Point(303, 385);
+            this.udPendingAlbumSecond.Location = new System.Drawing.Point(320, 385);
             this.udPendingAlbumSecond.Name = "udPendingAlbumSecond";
             this.udPendingAlbumSecond.Size = new System.Drawing.Size(44, 26);
             this.udPendingAlbumSecond.TabIndex = 75;
@@ -381,7 +379,7 @@
             // 
             this.lblPendingAlbumOriginalDateTimeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPendingAlbumOriginalDateTimeValue.AutoSize = true;
-            this.lblPendingAlbumOriginalDateTimeValue.Location = new System.Drawing.Point(141, 362);
+            this.lblPendingAlbumOriginalDateTimeValue.Location = new System.Drawing.Point(158, 362);
             this.lblPendingAlbumOriginalDateTimeValue.Name = "lblPendingAlbumOriginalDateTimeValue";
             this.lblPendingAlbumOriginalDateTimeValue.Size = new System.Drawing.Size(119, 15);
             this.lblPendingAlbumOriginalDateTimeValue.TabIndex = 76;

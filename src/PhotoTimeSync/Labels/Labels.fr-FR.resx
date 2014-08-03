@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -117,7 +117,203 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckFolder_CheckingFolderExists" xml:space="preserve">
+    <value>Vérification de l&apos;existence du dossier &apos;{0}&apos;</value>
+    <comment>Text indicating that soft is checking folder existence. {0} will be replaced by current folder name.</comment>
+  </data>
+  <data name="CheckFolder_SelectedFolderNotExist" xml:space="preserve">
+    <value>Le dossier sélectionné n&apos;existe pas.</value>
+    <comment>Text indicating that the selected folder has not been found</comment>
+  </data>
+  <data name="ExploreFolder_ErrorConclusion" xml:space="preserve">
+    <value>Exploration du dossier NOK</value>
+    <comment>Text stating that exploring the folder failed</comment>
+  </data>
+  <data name="ExploreFolder_ErrorExplanationInsufficientFolders" xml:space="preserve">
+    <value>ERREUR : Le dossier sélectionné doit contenir au moins 2 sous-dossiers représentant les collections à synchroniser</value>
+    <comment>Text explaining that the folder selected is not adequate since not enough subfolders have been found.</comment>
+  </data>
+  <data name="ExploreFolder_ErrorExplanationInsufficientPhotos" xml:space="preserve">
+    <value>ERREUR : Le dossier sélectionné doit contenir au moins 2 sous-dossiers représentant les collections à synchroniser (i.e. avec des photos dans chaque sous-dossier)</value>
+    <comment>Text explaining that the folder selected is not adequate since not enough subfolders with photos have been found.</comment>
+  </data>
+  <data name="ExploreFolder_ExploringMainFolder" xml:space="preserve">
+    <value>Exploration du dossier &apos;{0}&apos;</value>
+    <comment>Text indicating that soft is exploring main folder. {0} will be replaced by current folder name.</comment>
+  </data>
+  <data name="ExploreFolder_ExploringSubFolder" xml:space="preserve">
+    <value>Exploration du sous-dossier &apos;{0}&apos;</value>
+    <comment>Text indicating that soft is exploring a subfolder folder. {0} will be replaced by current subfolder name.</comment>
+  </data>
+  <data name="ExploreFolder_OKConclusion" xml:space="preserve">
+    <value>Exploration du dossier OK</value>
+    <comment>Text stating that the folder has been explored successfully</comment>
+  </data>
+  <data name="ExploreFolder_PhotoIgnored" xml:space="preserve">
+    <value>ATTENTION : La photo &apos;{0}&apos; a été ignorée car elle n&apos;avait pas de propriété DateTime ni DateTimeOriginal dans les données Exif</value>
+    <comment>Text stating that a photo will be ignored since it has no Exif properties DateTime or DateTimeOriginal included. {0} will be replaced by the photo ignored name.</comment>
+  </data>
+  <data name="ExploreFolder_PhotosCount" xml:space="preserve">
+    <value>{0} photos trouvée(s) dans le sous-dossier &apos;{1}&apos;</value>
+    <comment>Text stating the number of photos found in a given subfolders. {0} will be replaced by the number of photos found. {1} will be replaced by current subfolder name.</comment>
+  </data>
+  <data name="ExploreFolder_SubFolderCount" xml:space="preserve">
+    <value>{0} sous-dossier(s) trouvé(s)</value>
+    <comment>Text stating the number of subfolders found. {0} will be replaced by current number of subfolders.</comment>
+  </data>
+  <data name="ExploreFolder_SubFolderIgnored" xml:space="preserve">
+    <value>Le sous-dossier sera ignoré.</value>
+    <comment>Text stating that a subfolder will be ignored</comment>
+  </data>
+  <data name="ExploreFolder_SubSubFolderIgnored" xml:space="preserve">
+    <value>ATTENTION : {0} sous-sous-dossiers ont été trouvés dans le sous-dossier &apos;{1}&apos;. Ces sous-sous-dossiers seront ignorés.</value>
+    <comment>Text stating that subsubfolder(s) has(ve) been found in a subfolder where only photos where expected. Subsubfolders will be ignored. {0} will be replaced by the number of subsubfolders found. {1} will be replaced by current subfolder name.</comment>
+  </data>
   <data name="Generic_ButtonNext" xml:space="preserve">
     <value>Suivant</value>
+    <comment>Next button text</comment>
+  </data>
+  <data name="Generic_ButtonPrev" xml:space="preserve">
+    <value>Précédent</value>
+    <comment>Prev button text</comment>
+  </data>
+  <data name="Generic_CorrectedDateTime" xml:space="preserve">
+    <value>Date/heure corrigée</value>
+    <comment>Label for adjusted date/time</comment>
+  </data>
+  <data name="Generic_Correction" xml:space="preserve">
+    <value>Correction</value>
+    <comment>Label for date/time correction</comment>
+  </data>
+  <data name="Generic_Day" xml:space="preserve">
+    <value>jour(s)</value>
+    <comment>Label (including potential plural) for day(s)</comment>
+  </data>
+  <data name="Generic_Error" xml:space="preserve">
+    <value>Erreur</value>
+    <comment>Short label indicating an error</comment>
+  </data>
+  <data name="Generic_Hour" xml:space="preserve">
+    <value>heure(s)</value>
+    <comment>Label (including potential plural) for hour(s)</comment>
+  </data>
+  <data name="Generic_Minute" xml:space="preserve">
+    <value>minute(s)</value>
+    <comment>Label (including potential plural) for minute(s)</comment>
+  </data>
+  <data name="Generic_NoCorrection" xml:space="preserve">
+    <value>aucune correction</value>
+  </data>
+  <data name="Generic_NOK" xml:space="preserve">
+    <value>NOK</value>
+    <comment>Short label indicating that action is NOK</comment>
+  </data>
+  <data name="Generic_OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>Short label indicating that action is OK</comment>
+  </data>
+  <data name="Generic_OriginalDateTime" xml:space="preserve">
+    <value>Date/heure originale</value>
+    <comment>Label for original date/time</comment>
+  </data>
+  <data name="Generic_Second" xml:space="preserve">
+    <value>seconde(s)</value>
+    <comment>Label (including potential plural) for second(s)</comment>
+  </data>
+  <data name="Screen1_ButtonBrowse" xml:space="preserve">
+    <value>Explorer</value>
+    <comment>Browse button text</comment>
+  </data>
+  <data name="Screen1_ButtonImport" xml:space="preserve">
+    <value>Importer et vérifier le dossier</value>
+    <comment>Import button text</comment>
+  </data>
+  <data name="Screen1_Header" xml:space="preserve">
+    <value>Sélectionner le dossier principal</value>
+    <comment>Header text</comment>
+  </data>
+  <data name="Screen1_HintBrowseFolder" xml:space="preserve">
+    <value>Veuillez sélectionner un dossier ...</value>
+    <comment>Text displayed in textbox to indicate that a folder has to be selected</comment>
+  </data>
+  <data name="Screen1_LabelIncorrect" xml:space="preserve">
+    <value>Le dossier sélectionné est incorrect</value>
+    <comment>Text displayed in case of incorrect folder choice</comment>
+  </data>
+  <data name="Screen1_MsgBoxDirectoryNotExist" xml:space="preserve">
+    <value>Le dossier sélectionné n&apos;existe pas</value>
+    <comment>MessageBox text indicating that the directory does not exist</comment>
+  </data>
+  <data name="Screen2_Header" xml:space="preserve">
+    <value>Sélectionner l&apos;appareil photo principal</value>
+    <comment>Header text</comment>
+  </data>
+  <data name="Screen2_Introduction" xml:space="preserve">
+    <value>Sélectionner un appareil photo dont la date/heure est correct ou pour lequel vous souhaitez appliquer une correction déjà connue.</value>
+    <comment>Introduction text</comment>
+  </data>
+  <data name="Screen3_ButtonPendingSync" xml:space="preserve">
+    <value>L&apos;album en attente est synchronisé</value>
+    <comment>Text of button indicating that pending album  is not syncrhonized</comment>
+  </data>
+  <data name="Screen3_Header" xml:space="preserve">
+    <value>Synchroniser les albums en attente</value>
+    <comment>Header text</comment>
+  </data>
+  <data name="Screen3_Introduction" xml:space="preserve">
+    <value>Sélectionner un album déjà synchronisé et un album en attente. Ensuite, rechercher deux photos prises au même moment (ou ajuster manuellement la date/heure d&apos;une photo de l&apos;album en attente). Une fois terminé, valider la synchronisation de l&apos;album en attente.</value>
+    <comment>Introduction text</comment>
+  </data>
+  <data name="Screen3_PendingAlbums" xml:space="preserve">
+    <value>Albums en attente</value>
+    <comment>Title of list of pending albums</comment>
+  </data>
+  <data name="Screen3_SyncAlbums" xml:space="preserve">
+    <value>Albums synchronisés</value>
+    <comment>Title of list of synchronized albums</comment>
+  </data>
+  <data name="Screen4_ButtonGo" xml:space="preserve">
+    <value>Go !</value>
+    <comment>Go button text</comment>
+  </data>
+  <data name="Screen4_ButtonQuit" xml:space="preserve">
+    <value>Quitter</value>
+    <comment>Quit button text</comment>
+  </data>
+  <data name="Screen4_ColCorrection" xml:space="preserve">
+    <value>Correction</value>
+    <comment>Header of column 'Correction'</comment>
+  </data>
+  <data name="Screen4_ColFolderName" xml:space="preserve">
+    <value>Nom du dossier</value>
+    <comment>Header of column 'Folder Name'</comment>
+  </data>
+  <data name="Screen4_CompletedText" xml:space="preserve">
+    <value>Correction terminée - {0} photos corrigées.</value>
+    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified.</comment>
+  </data>
+  <data name="Screen4_ConversionFailed" xml:space="preserve">
+    <value>Correction en erreur ! {0}.</value>
+    <comment>Text displayed when conversion failed. {0} is replaced by the error message.</comment>
+  </data>
+  <data name="Screen4_FinalWords_Part1" xml:space="preserve">
+    <value>Vous avez corrigé un total de {0} photos en provenance de {1} cameras.</value>
+    <comment>Final words text - part 1. {0} is replaced by the total amount of photos corrected by current user. {1} is replaced by the total amount of folders corrected.</comment>
+  </data>
+  <data name="Screen4_Header" xml:space="preserve">
+    <value>Appliquer les corrections aux photos</value>
+    <comment>Header text</comment>
+  </data>
+  <data name="Screen4_Introduction" xml:space="preserve">
+    <value>Les corrections ci-dessous vont être appliquées aux photos de chacun des dossiers</value>
+    <comment>Introduction text</comment>
+  </data>
+  <data name="Screen4_ProgressText" xml:space="preserve">
+    <value>Corrections des date/heure des photos en cours - {0}%</value>
+    <comment>Text displayed when conversion is ongoing. {0} is replaced by the percentage of photos modified.</comment>
+  </data>
+  <data name="Screen4_FinalWords_Part2" xml:space="preserve">
+    <value>Si vous appréciez ce logiciel, merci de nous soutenir et faites passer le mot !</value>
+    <comment>Final words text - part 2.</comment>
   </data>
 </root>
