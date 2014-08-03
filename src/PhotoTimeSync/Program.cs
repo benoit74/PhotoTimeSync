@@ -47,6 +47,10 @@ namespace PhotoTimeSync
             // Upgrade setting file if necessary (application version change)
             SettingsUtil.DoUpgrade(Properties.Settings.Default);
 
+            // Initialize User GUID (will be used to gather central statistics about usage)
+            if (Properties.Settings.Default.UserGUID.Equals(Guid.Parse("00000000-0000-0000-0000-000000000000")))
+                Properties.Settings.Default.UserGUID = Guid.NewGuid();
+
             // Set culture based on user setting
             PhotoTimeSync.Labels.Labels.Culture = new System.Globalization.CultureInfo(Properties.Settings.Default.UserLanguage);
 

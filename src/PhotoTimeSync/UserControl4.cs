@@ -78,10 +78,18 @@ namespace PhotoTimeSync
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Success", "{0} photos date/time corrected", nbPhotosTreated);
                 lblProgress.Text = string.Format(Labels.Labels.Screen4_CompletedText, nbPhotosTreated);
                 lblProgress.ForeColor = Color.DarkGreen;
+                Properties.Settings.Default.TotalPhotosCorrected += nbPhotosTreated;
+                int nbAlbumsTreated = _sync.Folders.Where(f => f.Correction.TotalSeconds != 0).Count();
+                Properties.Settings.Default.TotalAlbumsCorrected += nbAlbumsTreated;
+                lblStatistics.Text = string.Format(
+                    Labels.Labels.Screen4_FinalWords_Part1 + Environment.NewLine + Labels.Labels.Screen4_FinalWords_Part2,
+                    Properties.Settings.Default.TotalPhotosCorrected,
+                    Properties.Settings.Default.TotalAlbumsCorrected);
                 lblStatistics.Visible = true;
-                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.", nbPhotosTreated, 0);
-                lblStatistics.Text = string.Format(Labels.Labels.Screen4_FinalWords_Part1
-                    + Environment.NewLine + Labels.Labels.Screen4_FinalWords_Part2, nbPhotosTreated, 0);
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.", 
+                    Properties.Settings.Default.TotalPhotosCorrected,
+                    Properties.Settings.Default.TotalAlbumsCorrected);
+                Properties.Settings.Default.Save();
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
             btnQuit.Visible = true;

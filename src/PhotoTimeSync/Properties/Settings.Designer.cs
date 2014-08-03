@@ -46,5 +46,41 @@ namespace PhotoTimeSync.Properties {
                 this["UpgradeRequired"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long TotalPhotosCorrected {
+            get {
+                return ((long)(this["TotalPhotosCorrected"]));
+            }
+            set {
+                this["TotalPhotosCorrected"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long TotalAlbumsCorrected {
+            get {
+                return ((long)(this["TotalAlbumsCorrected"]));
+            }
+            set {
+                this["TotalAlbumsCorrected"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00000000-0000-0000-0000-000000000000")]
+        public global::System.Guid UserGUID {
+            get {
+                return ((global::System.Guid)(this["UserGUID"]));
+            }
+            set {
+                this["UserGUID"] = value;
+            }
+        }
     }
 }
