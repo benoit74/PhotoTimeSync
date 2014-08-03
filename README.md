@@ -8,5 +8,5 @@ The cameras don't have to be synchronize beforehand (which is very cumbersome, e
 More info & Downloads
 ---------------------
 
-[Website]http://phototimesync.oviles.info
+[Website](http://phototimesync.oviles.info)
 
