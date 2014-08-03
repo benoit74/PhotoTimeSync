@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExceptionDisplayer.cs" />
     <Compile Include="HeaderControl.cs">
       <SubType>UserControl</SubType>
@@ -59,6 +62,11 @@
       <DependentUpon>HeaderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="IFolderPathProvider.cs" />
+    <Compile Include="Labels\Labels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.resx</DependentUpon>
+    </Compile>
     <Compile Include="Logging\Configuration\LogConfig.cs" />
     <Compile Include="Logging\Configuration\RotatingLog.cs" />
     <Compile Include="Logging\Configuration\RotatingLogs.cs" />
@@ -101,6 +109,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefreshableLabelsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsUtil.cs" />
     <Compile Include="ThumbnailGenerator.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -128,6 +140,11 @@
     </Compile>
     <EmbeddedResource Include="HeaderControl.resx">
       <DependentUpon>HeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\Labels.fr-FR.resx" />
+    <EmbeddedResource Include="Labels\Labels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -177,6 +194,8 @@
     <Content Include="Phototimesync-Trans-Ico.ico" />
     <Content Include="Pics\arrow_down.png" />
     <Content Include="Pics\arrow_up.png" />
+    <Content Include="Pics\flag_france.png" />
+    <Content Include="Pics\flag_usa.png" />
     <None Include="Pics\Header.png" />
     <None Include="Pics\Icon.png" />
   </ItemGroup>

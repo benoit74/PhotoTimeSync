@@ -32,7 +32,7 @@
             "Album1",
             "-15 seconds"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl4));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblIntroduction = new System.Windows.Forms.Label();
             this.lstCorrections = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,15 +44,16 @@
             this.lblStatistics = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblIntroduction
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(397, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Following time corrections will be applied to the pictures of each folders";
+            this.lblIntroduction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIntroduction.Location = new System.Drawing.Point(3, 48);
+            this.lblIntroduction.Name = "lblIntroduction";
+            this.lblIntroduction.Size = new System.Drawing.Size(646, 53);
+            this.lblIntroduction.TabIndex = 0;
+            this.lblIntroduction.Text = "Following time corrections will be applied to the pictures of each folders";
+            this.lblIntroduction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lstCorrections
             // 
@@ -112,7 +113,7 @@
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(646, 27);
             this.lblProgress.TabIndex = 13;
-            this.lblProgress.Text = "label2";
+            this.lblProgress.Text = "---";
             this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblProgress.Visible = false;
             // 
@@ -151,7 +152,7 @@
             this.lblStatistics.Name = "lblStatistics";
             this.lblStatistics.Size = new System.Drawing.Size(646, 52);
             this.lblStatistics.TabIndex = 20;
-            this.lblStatistics.Text = "label2";
+            this.lblStatistics.Text = "---";
             this.lblStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblStatistics.Visible = false;
             // 
@@ -166,18 +167,17 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.lstCorrections);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblIntroduction);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UserControl4";
             this.Size = new System.Drawing.Size(653, 554);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblIntroduction;
         private System.Windows.Forms.ListView lstCorrections;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

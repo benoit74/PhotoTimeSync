@@ -11,7 +11,7 @@ using System.IO;
 
 namespace PhotoTimeSync
 {
-    public partial class UserControl1 : UserControl
+    public partial class UserControl1 : RefreshableLabelsUC
     {
 
         private PhotoTimeSynchronizer _sync;
@@ -21,8 +21,9 @@ namespace PhotoTimeSync
             LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl1", "Init", "", "");
             InitializeComponent();
             _sync = sync;
-            BrowseFolderHint = "Please select a folder ...";
+            BrowseFolderHint = "Please select a folder (never displayed) ...";
             txtFolder.Text = BrowseFolderHint;
+            RefreshLabels();
             RefreshContent();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl1", "Init", "OK", "");
         }
@@ -85,7 +86,10 @@ namespace PhotoTimeSync
         {
             LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl1", "btnImportAndCheck", "Click", "");
             if (!System.IO.Directory.Exists(txtFolder.Text))
-                MessageBox.Show("Directory does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Labels.Labels.Screen1_MsgBoxDirectoryNotExist, 
+                                Labels.Labels.Generic_Error,
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
             else
                 ImportAndCheck();
             btnImportAndCheck.Enabled = false;
@@ -112,7 +116,20 @@ namespace PhotoTimeSync
             parent.Controls.Add(page2);
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl1", "Next", "Done", "");
         }
-            
+
+        public override void RefreshLabels()
+        {
+            headerControl1.Label = Labels.Labels.Screen1_Header;
+            btnBrowse.Text = Labels.Labels.Screen1_ButtonBrowse;
+            btnImportAndCheck.Text = Labels.Labels.Screen1_ButtonImport;
+            btnNext.Text = Labels.Labels.Generic_ButtonNext;
+            lblError.Text = Labels.Labels.Screen1_LabelIncorrect;
+            if (txtFolder.Text == BrowseFolderHint)
+            {
+                txtFolder.Text = Labels.Labels.Screen1_HintBrowseFolder;
+            }
+            BrowseFolderHint = Labels.Labels.Screen1_HintBrowseFolder;
+        }
 
         
     }

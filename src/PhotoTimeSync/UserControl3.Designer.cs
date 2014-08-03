@@ -314,6 +314,7 @@
             // udPendingAlbumYear
             // 
             this.udPendingAlbumYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.udPendingAlbumYear.BackColor = System.Drawing.Color.Transparent;
             this.udPendingAlbumYear.Location = new System.Drawing.Point(124, 385);
             this.udPendingAlbumYear.Name = "udPendingAlbumYear";
             this.udPendingAlbumYear.Size = new System.Drawing.Size(62, 26);
@@ -324,7 +325,8 @@
             // udPendingAlbumMonth
             // 
             this.udPendingAlbumMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.udPendingAlbumMonth.Location = new System.Drawing.Point(170, 385);
+            this.udPendingAlbumMonth.BackColor = System.Drawing.Color.Transparent;
+            this.udPendingAlbumMonth.Location = new System.Drawing.Point(171, 385);
             this.udPendingAlbumMonth.Name = "udPendingAlbumMonth";
             this.udPendingAlbumMonth.Size = new System.Drawing.Size(45, 26);
             this.udPendingAlbumMonth.TabIndex = 71;
@@ -334,7 +336,8 @@
             // udPendingAlbumDay
             // 
             this.udPendingAlbumDay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.udPendingAlbumDay.Location = new System.Drawing.Point(202, 385);
+            this.udPendingAlbumDay.BackColor = System.Drawing.Color.Transparent;
+            this.udPendingAlbumDay.Location = new System.Drawing.Point(204, 385);
             this.udPendingAlbumDay.Name = "udPendingAlbumDay";
             this.udPendingAlbumDay.Size = new System.Drawing.Size(43, 26);
             this.udPendingAlbumDay.TabIndex = 72;
@@ -344,6 +347,7 @@
             // udPendingAlbumHour
             // 
             this.udPendingAlbumHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.udPendingAlbumHour.BackColor = System.Drawing.Color.Transparent;
             this.udPendingAlbumHour.Location = new System.Drawing.Point(244, 385);
             this.udPendingAlbumHour.Name = "udPendingAlbumHour";
             this.udPendingAlbumHour.Size = new System.Drawing.Size(42, 26);
@@ -354,7 +358,8 @@
             // udPendingAlbumMinute
             // 
             this.udPendingAlbumMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.udPendingAlbumMinute.Location = new System.Drawing.Point(273, 385);
+            this.udPendingAlbumMinute.BackColor = System.Drawing.Color.Transparent;
+            this.udPendingAlbumMinute.Location = new System.Drawing.Point(274, 385);
             this.udPendingAlbumMinute.Name = "udPendingAlbumMinute";
             this.udPendingAlbumMinute.Size = new System.Drawing.Size(43, 26);
             this.udPendingAlbumMinute.TabIndex = 74;
@@ -364,7 +369,8 @@
             // udPendingAlbumSecond
             // 
             this.udPendingAlbumSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.udPendingAlbumSecond.Location = new System.Drawing.Point(301, 385);
+            this.udPendingAlbumSecond.BackColor = System.Drawing.Color.Transparent;
+            this.udPendingAlbumSecond.Location = new System.Drawing.Point(303, 385);
             this.udPendingAlbumSecond.Name = "udPendingAlbumSecond";
             this.udPendingAlbumSecond.Size = new System.Drawing.Size(44, 26);
             this.udPendingAlbumSecond.TabIndex = 75;

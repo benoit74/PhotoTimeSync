@@ -83,6 +83,26 @@ namespace PhotoTimeSync {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flag_france {
+            get {
+                object obj = ResourceManager.GetObject("flag_france", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flag_usa {
+            get {
+                object obj = ResourceManager.GetObject("flag_usa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Header {
             get {
                 object obj = ResourceManager.GetObject("Header", resourceCulture);

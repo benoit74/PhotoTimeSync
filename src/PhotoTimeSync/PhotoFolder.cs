@@ -52,22 +52,22 @@ namespace PhotoTimeSync
         {
             StringBuilder correctionSB = new StringBuilder();
             if (Correction.TotalSeconds == 0)
-                return "no correction";
+                return Labels.Labels.Generic_NoCorrection;
             if (Correction.Days != 0)
             {
-                correctionSB.Append(string.Format("{0} day(s) ", Correction.Days));
+                correctionSB.Append(string.Format("{0} " + Labels.Labels.Generic_Day  + " ", Correction.Days));
             }
             if (Correction.Hours != 0)
             {
-                correctionSB.Append(string.Format("{0} hour(s) ", Correction.Hours));
+                correctionSB.Append(string.Format("{0} " + Labels.Labels.Generic_Hour + " ", Correction.Hours));
             }
             if (Correction.Minutes != 0)
             {
-                correctionSB.Append(string.Format("{0} minute(s) ", Correction.Minutes));
+                correctionSB.Append(string.Format("{0} " + Labels.Labels.Generic_Minute + " ", Correction.Minutes));
             }
             if (Correction.Seconds != 0)
             {
-                correctionSB.Append(string.Format("{0} second(s) ", Correction.Seconds));
+                correctionSB.Append(string.Format("{0} " + Labels.Labels.Generic_Second + " ", Correction.Seconds));
             }
             return correctionSB.ToString();
         }

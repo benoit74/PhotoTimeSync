@@ -114,10 +114,10 @@
             this.pnlPictureDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPictureDetail.Controls.Add(this.yearUpDown);
             this.pnlPictureDetail.Controls.Add(this.lblAdjustedDateTime);
             this.pnlPictureDetail.Controls.Add(this.hourUpDown);
             this.pnlPictureDetail.Controls.Add(this.minuteUpDown);
-            this.pnlPictureDetail.Controls.Add(this.yearUpDown);
             this.pnlPictureDetail.Controls.Add(this.monthUpDown);
             this.pnlPictureDetail.Controls.Add(this.lblCorrectionValue);
             this.pnlPictureDetail.Controls.Add(this.lblCorrection);
@@ -154,7 +154,7 @@
             // minuteUpDown
             // 
             this.minuteUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.minuteUpDown.Location = new System.Drawing.Point(265, 305);
+            this.minuteUpDown.Location = new System.Drawing.Point(266, 305);
             this.minuteUpDown.Name = "minuteUpDown";
             this.minuteUpDown.Size = new System.Drawing.Size(33, 26);
             this.minuteUpDown.TabIndex = 32;
@@ -164,9 +164,9 @@
             // yearUpDown
             // 
             this.yearUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.yearUpDown.Location = new System.Drawing.Point(98, 305);
+            this.yearUpDown.Location = new System.Drawing.Point(119, 305);
             this.yearUpDown.Name = "yearUpDown";
-            this.yearUpDown.Size = new System.Drawing.Size(74, 26);
+            this.yearUpDown.Size = new System.Drawing.Size(53, 26);
             this.yearUpDown.TabIndex = 28;
             this.yearUpDown.Value = 2014;
             this.yearUpDown.ValueChanged += new PhotoTimeSync.MyNumericUpDown.ValueChangedHandler(this.anUpDown_ValueChanged);
@@ -174,7 +174,7 @@
             // monthUpDown
             // 
             this.monthUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.monthUpDown.Location = new System.Drawing.Point(168, 305);
+            this.monthUpDown.Location = new System.Drawing.Point(169, 305);
             this.monthUpDown.Name = "monthUpDown";
             this.monthUpDown.Size = new System.Drawing.Size(33, 26);
             this.monthUpDown.TabIndex = 29;
@@ -215,7 +215,7 @@
             // secondUpDown
             // 
             this.secondUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.secondUpDown.Location = new System.Drawing.Point(294, 305);
+            this.secondUpDown.Location = new System.Drawing.Point(296, 305);
             this.secondUpDown.Name = "secondUpDown";
             this.secondUpDown.Size = new System.Drawing.Size(33, 26);
             this.secondUpDown.TabIndex = 33;
@@ -225,7 +225,7 @@
             // dayUpDown
             // 
             this.dayUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dayUpDown.Location = new System.Drawing.Point(197, 305);
+            this.dayUpDown.Location = new System.Drawing.Point(199, 305);
             this.dayUpDown.Name = "dayUpDown";
             this.dayUpDown.Size = new System.Drawing.Size(33, 26);
             this.dayUpDown.TabIndex = 30;

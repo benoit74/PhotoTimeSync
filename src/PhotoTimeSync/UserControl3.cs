@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PhotoTimeSync
 {
-    public partial class UserControl3 : UserControl
+    public partial class UserControl3 : RefreshableLabelsUC
     {
 
         private PhotoTimeSynchronizer _sync;
@@ -38,6 +38,7 @@ namespace PhotoTimeSync
             PendingPhotoIndexHasChanged();
             lblAbsCorrectionSyncAlbumValue.Text = "---";
             //pnlPictureDetail.Visible = false;
+            RefreshLabels();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl3", "Init", "OK", "");
         }
 
@@ -353,6 +354,30 @@ namespace PhotoTimeSync
         private void pnlSyncAlbumPic_SizeChanged(object sender, EventArgs e)
         {
             pnlSyncAlbumPic.Invalidate();
+        }
+
+        public override void RefreshLabels()
+        {
+            headerControl1.Label = Labels.Labels.Screen3_Header;
+            btnNext.Text = Labels.Labels.Generic_ButtonNext;
+            btnPrev.Text = Labels.Labels.Generic_ButtonPrev;
+            txtIntroduction.Text = Labels.Labels.Screen3_Introduction;
+            lblPendingAlbumOriginalDateTime.Text = Labels.Labels.Generic_OriginalDateTime;
+            lblPendingAlbumAdjustedDateTime.Text = Labels.Labels.Generic_CorrectedDateTime;
+            lblAdjustedDateTimeSyncAlbum.Text = Labels.Labels.Generic_CorrectedDateTime;
+            lblPendingAlbumAbsCorrection.Text = Labels.Labels.Generic_Correction;
+            lblAbsCorrectionSyncAlbum.Text = Labels.Labels.Generic_Correction;
+            if (_sync.CurrentPendingFolder != null)
+            {
+                lblPendingAlbumAbsCorrectionValue.Text = _sync.CurrentPendingFolder.CorrectionToString();
+            }
+            if (_sync.CurrentSyncFolder != null)
+            {
+                lblAbsCorrectionSyncAlbumValue.Text = _sync.CurrentSyncFolder.CorrectionToString();
+            }
+            lblPendingAlbums.Text = Labels.Labels.Screen3_PendingAlbums;
+            lblSyncAlbums.Text = Labels.Labels.Screen3_SyncAlbums;
+            btnPendingAlbumIsSync.Text = Labels.Labels.Screen3_ButtonPendingSync;
         }
 
     }

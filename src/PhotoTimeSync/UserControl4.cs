@@ -11,7 +11,7 @@ using ExifLibrary;
 
 namespace PhotoTimeSync
 {
-    public partial class UserControl4 : UserControl
+    public partial class UserControl4 : RefreshableLabelsUC
     {
 
         private PhotoTimeSynchronizer _sync;
@@ -28,6 +28,7 @@ namespace PhotoTimeSync
             {
                 lstCorrections.Items.Add(new ListViewItem(new string[] {fld.FolderName, fld.CorrectionToString()}));
             }
+            RefreshLabels();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "Init", "OK", "");
         }
 
@@ -67,7 +68,7 @@ namespace PhotoTimeSync
         {
             if (e.Error != null)
             {
-                lblProgress.Text = string.Format("Conversion failed ! {0}.", e.Error.Message);
+                lblProgress.Text = string.Format(Labels.Labels.Screen4_ConversionFailed, e.Error.Message);
                 LogManager.Log(System.Diagnostics.TraceLevel.Error, "UserControl4", "RunWorkerCompleted", "Error", "Content:\r\n{0}", ExceptionDisplayer.GetString(e.Error));
                 lblProgress.ForeColor = Color.DarkRed;
             }
@@ -75,11 +76,11 @@ namespace PhotoTimeSync
             {
                 int nbPhotosTreated = (int)e.Result;
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Success", "{0} photos date/time corrected", nbPhotosTreated);
-                lblProgress.Text = string.Format("Conversion completed - {0} photos date/time corrected.", nbPhotosTreated);
+                lblProgress.Text = string.Format(Labels.Labels.Screen4_CompletedText, nbPhotosTreated);
                 lblProgress.ForeColor = Color.DarkGreen;
                 lblStatistics.Visible = true;
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.", nbPhotosTreated, 0);
-                lblStatistics.Text = string.Format("You have corrected a total of {0} photos from {1} cameras. If you enjoy the software, please mind donating few euros to reward the work done and ongoing.", nbPhotosTreated, 0);
+                lblStatistics.Text = string.Format(Labels.Labels.Screen4_FinalWords, nbPhotosTreated, 0);
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
             btnQuit.Visible = true;
@@ -87,7 +88,7 @@ namespace PhotoTimeSync
 
         void bg_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            lblProgress.Text = string.Format("Correcting photos date/time - {0}%", e.ProgressPercentage);
+            lblProgress.Text = string.Format(Labels.Labels.Screen4_ProgressText, e.ProgressPercentage);
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "RunWorkerCompleted", "Progress", "{0}%", e.ProgressPercentage);
         }
 
@@ -141,7 +142,17 @@ namespace PhotoTimeSync
             Application.Exit();
         }
 
+        public override void RefreshLabels()
+        {
+            headerControl1.Label = Labels.Labels.Screen4_Header;
+            btnNext.Text = Labels.Labels.Screen4_ButtonGo;
+            btnPrev.Text = Labels.Labels.Generic_ButtonPrev;
+            btnQuit.Text = Labels.Labels.Screen4_ButtonQuit;
+            lblIntroduction.Text = Labels.Labels.Screen4_Introduction;
+            columnHeader1.Text = Labels.Labels.Screen4_ColFolderName;
+            columnHeader2.Text = Labels.Labels.Screen4_ColCorrection;
 
+        }
 
     }
 }

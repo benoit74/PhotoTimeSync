@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.comboBoxWithImage1 = new PhotoTimeSync.ComboBoxWithImage();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -41,11 +42,24 @@
             this.mainPanel.Size = new System.Drawing.Size(1008, 729);
             this.mainPanel.TabIndex = 4;
             // 
+            // comboBoxWithImage1
+            // 
+            this.comboBoxWithImage1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxWithImage1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxWithImage1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxWithImage1.FormattingEnabled = true;
+            this.comboBoxWithImage1.Location = new System.Drawing.Point(788, 16);
+            this.comboBoxWithImage1.Name = "comboBoxWithImage1";
+            this.comboBoxWithImage1.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxWithImage1.TabIndex = 0;
+            this.comboBoxWithImage1.SelectedIndexChanged += new System.EventHandler(this.comboBoxWithImage1_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.comboBoxWithImage1);
             this.Controls.Add(this.mainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -58,6 +72,7 @@
         #endregion
 
         private System.Windows.Forms.Panel mainPanel;
+        private ComboBoxWithImage comboBoxWithImage1;
     }
 }
 

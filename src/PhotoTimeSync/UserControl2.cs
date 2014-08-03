@@ -12,7 +12,7 @@ using System.IO;
 
 namespace PhotoTimeSync
 {
-    public partial class UserControl2 : UserControl
+    public partial class UserControl2 : RefreshableLabelsUC
     {
 
         private PhotoTimeSynchronizer _sync;
@@ -32,6 +32,7 @@ namespace PhotoTimeSync
             }
             btnNext.Enabled = false;
             pnlPictureDetail.Visible = false;
+            RefreshLabels();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl2", "Init", "OK", "");
         }
 
@@ -146,7 +147,20 @@ namespace PhotoTimeSync
             pnlPicturePreview.Invalidate();
         }
 
-
+        public override void RefreshLabels()
+        {
+            headerControl1.Label = Labels.Labels.Screen2_Header;
+            btnNext.Text = Labels.Labels.Generic_ButtonNext;
+            btnPrev.Text = Labels.Labels.Generic_ButtonPrev;
+            txtIntroduction.Text = Labels.Labels.Screen2_Introduction;
+            lblOriginalDateTime.Text = Labels.Labels.Generic_OriginalDateTime;
+            lblAdjustedDateTime.Text = Labels.Labels.Generic_CorrectedDateTime;
+            lblCorrection.Text = Labels.Labels.Generic_Correction;
+            if (_sync.CurrentPendingFolder != null)
+            {
+                lblCorrectionValue.Text = _sync.CurrentPendingFolder.CorrectionToString();
+            }
+        }
 
     }
 }

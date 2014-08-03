@@ -67,15 +67,16 @@ namespace PhotoTimeSync
             this.txtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBox.BackColor = System.Drawing.SystemColors.Control;
             this.txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBox.Location = new System.Drawing.Point(8, 17);
+            this.txtBox.Location = new System.Drawing.Point(0, 17);
             this.txtBox.Name = "txtBox";
-            this.txtBox.Size = new System.Drawing.Size(71, 13);
+            this.txtBox.Size = new System.Drawing.Size(79, 13);
             this.txtBox.TabIndex = 19;
             this.txtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // MyNumericUpDown
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.txtBox);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnUp);
