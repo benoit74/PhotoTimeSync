@@ -19,7 +19,7 @@ Requires .Net Framework 4.0 (Microsoft one, or Mono especially on Linux/Mac).
 
 After installation of .Net Framework (if not already present), simply unzip the release file in the folder of your choice and start PhotoTimeSync.exe (for Mono, type 'mono PhotoTimeSync.exe' in a command prompt).
 
-More info
+Web
 ---------
 
 [Website](http://phototimesync.oviles.info)
