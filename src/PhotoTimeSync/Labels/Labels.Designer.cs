@@ -412,6 +412,24 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5 euros.
+        /// </summary>
+        internal static string Screen4_ButtonDonate5Euros {
+            get {
+                return ResourceManager.GetString("Screen4_ButtonDonate5Euros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Free amount.
+        /// </summary>
+        internal static string Screen4_ButtonDonateFreeAmount {
+            get {
+                return ResourceManager.GetString("Screen4_ButtonDonateFreeAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Go !.
         /// </summary>
         internal static string Screen4_ButtonGo {
@@ -498,6 +516,15 @@ namespace PhotoTimeSync.Labels {
         internal static string Screen4_Introduction {
             get {
                 return ResourceManager.GetString("Screen4_Introduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donate.
+        /// </summary>
+        internal static string Screen4_LabelDonate {
+            get {
+                return ResourceManager.GetString("Screen4_LabelDonate", resourceCulture);
             }
         }
         

@@ -316,4 +316,13 @@
     <value>If you enjoy the software, please support us and spread the word.</value>
     <comment>Final words text - part 2.</comment>
   </data>
+  <data name="Screen4_ButtonDonate5Euros" xml:space="preserve">
+    <value>5 euros</value>
+  </data>
+  <data name="Screen4_ButtonDonateFreeAmount" xml:space="preserve">
+    <value>Free amount</value>
+  </data>
+  <data name="Screen4_LabelDonate" xml:space="preserve">
+    <value>Donate</value>
+  </data>
 </root>

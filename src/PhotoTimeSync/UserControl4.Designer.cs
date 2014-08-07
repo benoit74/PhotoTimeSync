@@ -40,8 +40,13 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.lblProgress = new System.Windows.Forms.Label();
             this.btnQuit = new System.Windows.Forms.Button();
-            this.headerControl1 = new PhotoTimeSync.HeaderControl();
             this.lblStatistics = new System.Windows.Forms.Label();
+            this.btnDonatePaypal5Euros = new System.Windows.Forms.Button();
+            this.btnDonatePaypalFreeAmount = new System.Windows.Forms.Button();
+            this.btnFlattr = new System.Windows.Forms.Button();
+            this.headerControl1 = new PhotoTimeSync.HeaderControl();
+            this.btnTwitter = new System.Windows.Forms.Button();
+            this.btnFacebook = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIntroduction
@@ -67,7 +72,7 @@
             listViewItem1});
             this.lstCorrections.Location = new System.Drawing.Point(3, 104);
             this.lstCorrections.Name = "lstCorrections";
-            this.lstCorrections.Size = new System.Drawing.Size(646, 324);
+            this.lstCorrections.Size = new System.Drawing.Size(646, 301);
             this.lstCorrections.TabIndex = 1;
             this.lstCorrections.UseCompatibleStateImageBehavior = false;
             this.lstCorrections.View = System.Windows.Forms.View.Details;
@@ -109,7 +114,7 @@
             // 
             this.lblProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProgress.Location = new System.Drawing.Point(3, 445);
+            this.lblProgress.Location = new System.Drawing.Point(3, 410);
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(646, 27);
             this.lblProgress.TabIndex = 13;
@@ -128,6 +133,58 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // lblStatistics
+            // 
+            this.lblStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatistics.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatistics.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblStatistics.Location = new System.Drawing.Point(3, 442);
+            this.lblStatistics.Name = "lblStatistics";
+            this.lblStatistics.Size = new System.Drawing.Size(646, 40);
+            this.lblStatistics.TabIndex = 20;
+            this.lblStatistics.Text = "---";
+            this.lblStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStatistics.Visible = false;
+            // 
+            // btnDonatePaypal5Euros
+            // 
+            this.btnDonatePaypal5Euros.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDonatePaypal5Euros.Location = new System.Drawing.Point(328, 492);
+            this.btnDonatePaypal5Euros.Name = "btnDonatePaypal5Euros";
+            this.btnDonatePaypal5Euros.Size = new System.Drawing.Size(96, 23);
+            this.btnDonatePaypal5Euros.TabIndex = 14;
+            this.btnDonatePaypal5Euros.Text = "5 Euros";
+            this.btnDonatePaypal5Euros.UseVisualStyleBackColor = true;
+            this.btnDonatePaypal5Euros.Click += new System.EventHandler(this.btnDonatePaypal5Euros_Click);
+            // 
+            // btnDonatePaypalFreeAmount
+            // 
+            this.btnDonatePaypalFreeAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDonatePaypalFreeAmount.Location = new System.Drawing.Point(427, 492);
+            this.btnDonatePaypalFreeAmount.Name = "btnDonatePaypalFreeAmount";
+            this.btnDonatePaypalFreeAmount.Size = new System.Drawing.Size(96, 23);
+            this.btnDonatePaypalFreeAmount.TabIndex = 21;
+            this.btnDonatePaypalFreeAmount.Text = "Free amount";
+            this.btnDonatePaypalFreeAmount.UseVisualStyleBackColor = true;
+            this.btnDonatePaypalFreeAmount.Click += new System.EventHandler(this.btnDonatePaypalFreeAmount_Click);
+            // 
+            // btnFlattr
+            // 
+            this.btnFlattr.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnFlattr.BackColor = System.Drawing.Color.Transparent;
+            this.btnFlattr.BackgroundImage = global::PhotoTimeSync.Pics.flattr_badge_large;
+            this.btnFlattr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFlattr.FlatAppearance.BorderSize = 0;
+            this.btnFlattr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFlattr.Location = new System.Drawing.Point(538, 492);
+            this.btnFlattr.Name = "btnFlattr";
+            this.btnFlattr.Size = new System.Drawing.Size(100, 23);
+            this.btnFlattr.TabIndex = 22;
+            this.btnFlattr.UseVisualStyleBackColor = false;
+            this.btnFlattr.Visible = false;
+            this.btnFlattr.Click += new System.EventHandler(this.btnFlattr_Click);
+            // 
             // headerControl1
             // 
             this.headerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -142,26 +199,39 @@
             this.headerControl1.Size = new System.Drawing.Size(653, 44);
             this.headerControl1.TabIndex = 19;
             // 
-            // lblStatistics
+            // btnTwitter
             // 
-            this.lblStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatistics.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatistics.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblStatistics.Location = new System.Drawing.Point(3, 470);
-            this.lblStatistics.Name = "lblStatistics";
-            this.lblStatistics.Size = new System.Drawing.Size(646, 52);
-            this.lblStatistics.TabIndex = 20;
-            this.lblStatistics.Text = "---";
-            this.lblStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStatistics.Visible = false;
+            this.btnTwitter.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTwitter.Location = new System.Drawing.Point(229, 492);
+            this.btnTwitter.Name = "btnTwitter";
+            this.btnTwitter.Size = new System.Drawing.Size(96, 23);
+            this.btnTwitter.TabIndex = 23;
+            this.btnTwitter.Text = "Tweeter";
+            this.btnTwitter.UseVisualStyleBackColor = true;
+            this.btnTwitter.Click += new System.EventHandler(this.btnTwitter_Click);
+            // 
+            // btnFacebook
+            // 
+            this.btnFacebook.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnFacebook.Location = new System.Drawing.Point(130, 492);
+            this.btnFacebook.Name = "btnFacebook";
+            this.btnFacebook.Size = new System.Drawing.Size(96, 23);
+            this.btnFacebook.TabIndex = 24;
+            this.btnFacebook.Text = "Facebook";
+            this.btnFacebook.UseVisualStyleBackColor = true;
+            this.btnFacebook.Click += new System.EventHandler(this.btnFacebook_Click);
             // 
             // UserControl4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnFacebook);
+            this.Controls.Add(this.btnTwitter);
+            this.Controls.Add(this.btnFlattr);
+            this.Controls.Add(this.btnDonatePaypalFreeAmount);
             this.Controls.Add(this.lblStatistics);
             this.Controls.Add(this.headerControl1);
+            this.Controls.Add(this.btnDonatePaypal5Euros);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lblProgress);
             this.Controls.Add(this.btnNext);
@@ -172,7 +242,6 @@
             this.Name = "UserControl4";
             this.Size = new System.Drawing.Size(653, 554);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -188,5 +257,10 @@
         private System.Windows.Forms.Button btnQuit;
         private HeaderControl headerControl1;
         private System.Windows.Forms.Label lblStatistics;
+        private System.Windows.Forms.Button btnDonatePaypal5Euros;
+        private System.Windows.Forms.Button btnDonatePaypalFreeAmount;
+        private System.Windows.Forms.Button btnFlattr;
+        private System.Windows.Forms.Button btnTwitter;
+        private System.Windows.Forms.Button btnFacebook;
     }
 }

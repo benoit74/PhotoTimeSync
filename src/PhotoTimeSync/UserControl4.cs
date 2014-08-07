@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExifLibrary;
+using System.Diagnostics;
 
 namespace PhotoTimeSync
 {
@@ -23,6 +24,11 @@ namespace PhotoTimeSync
             _sync = sync;
             lblProgress.Visible = false;
             btnQuit.Visible = false;
+            btnDonatePaypalFreeAmount.Visible = false;
+            btnDonatePaypal5Euros.Visible = false;
+            btnFacebook.Visible = false;
+            btnTwitter.Visible = false;
+            btnFlattr.Visible = false;
             lstCorrections.Items.Clear();
             foreach (PhotoFolder fld in _sync.Folders)
             {
@@ -93,6 +99,11 @@ namespace PhotoTimeSync
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
             btnQuit.Visible = true;
+            btnDonatePaypalFreeAmount.Visible = true;
+            btnDonatePaypal5Euros.Visible = true;
+            btnFacebook.Visible = true;
+            btnTwitter.Visible = true;
+            //btnFlattr.Visible = true;
         }
 
         void bg_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -151,6 +162,30 @@ namespace PhotoTimeSync
             Application.Exit();
         }
 
+        private void btnDonatePaypal5Euros_Click(object sender, System.EventArgs e)
+        {
+            Process.Start(DonateURLs.Paypal5Euros);
+        }
+        private void btnFlattr_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void btnDonatePaypalFreeAmount_Click(object sender, EventArgs e)
+        {
+            Process.Start(DonateURLs.PaypalFreeAmount);
+        }
+
+        private void btnTwitter_Click(object sender, EventArgs e)
+        {
+            Process.Start(DonateURLs.TwitterUrl);
+        }
+
+        private void btnFacebook_Click(object sender, EventArgs e)
+        {
+            Process.Start(DonateURLs.FacebookUrl);
+        }
+
         public override void RefreshLabels()
         {
             headerControl1.Label = Labels.Labels.Screen4_Header;
@@ -160,8 +195,13 @@ namespace PhotoTimeSync
             lblIntroduction.Text = Labels.Labels.Screen4_Introduction;
             columnHeader1.Text = Labels.Labels.Screen4_ColFolderName;
             columnHeader2.Text = Labels.Labels.Screen4_ColCorrection;
-
+            btnDonatePaypal5Euros.Text = Labels.Labels.Screen4_ButtonDonate5Euros;
+            btnDonatePaypalFreeAmount.Text = Labels.Labels.Screen4_ButtonDonateFreeAmount;
         }
+
+
+
+
 
     }
 }

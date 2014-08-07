@@ -54,6 +54,7 @@
     <Compile Include="ComboBoxWithImage.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DonateURLs.cs" />
     <Compile Include="ExceptionDisplayer.cs" />
     <Compile Include="HeaderControl.cs">
       <SubType>UserControl</SubType>
@@ -191,11 +192,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Phototimesync-Trans-Ico.ico" />
     <Content Include="Pics\arrow_down.png" />
     <Content Include="Pics\arrow_up.png" />
     <Content Include="Pics\flag_france.png" />
     <Content Include="Pics\flag_usa.png" />
+    <Content Include="README.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Pics\flattr-badge-large.png" />
     <None Include="Pics\Header.png" />
     <None Include="Pics\Icon.png" />
   </ItemGroup>
