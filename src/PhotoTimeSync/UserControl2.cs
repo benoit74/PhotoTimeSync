@@ -87,7 +87,7 @@ namespace PhotoTimeSync
             _currentPhoto = photo;
             if (_currentImage != null)
                 _currentImage.Dispose();
-            _currentImage = Image.FromFile(photo.FullPath);
+            _currentImage = _currentPhoto.Thumbnail;
             pnlPictureDetail.Visible = true;
             lblOriginalDateTimeValue.Text = photo.InitialDateTime.ToString("yyyy/MM/dd HH:mm:ss");
             DateTime correctedDateTime = photo.InitialDateTime + _sync.CurrentPendingFolder.Correction;
