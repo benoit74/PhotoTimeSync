@@ -16,19 +16,19 @@ namespace PhotoTimeSync
         {
             get
             {
-                if (_exifImage == null)
-                {
-                    _exifImage = ImageFile.FromFile(FullPath);
-                    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Property extraction done", "File: {0}", this.FullPath);
+                /*if (_exifImage == null)
+                {*/
+                    return ImageFile.FromFile(FullPath);
+                /*    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Property extraction done", "File: {0}", this.FullPath);
                 }
                 else
                 {
                     LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Reusing existing property", "File: {0}", this.FullPath);
                 }
-                return _exifImage;
+                return _exifImage;*/
             }
         }
-        private ImageFile _exifImage;
+        //private ImageFile _exifImage;
 
         public string FullPath
         {
