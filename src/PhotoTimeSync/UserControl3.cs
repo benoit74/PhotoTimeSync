@@ -119,7 +119,7 @@ namespace PhotoTimeSync
             }
             else
             {
-                _currentSyncImage = Image.FromFile(_currentSyncPhoto.FullPath);
+                _currentSyncImage = _currentSyncPhoto.Thumbnail;
                 lblSyncAlbumPicName.Text = _currentSyncPhoto.fileName;
                 DateTime correctedDateTime = _currentSyncPhoto.InitialDateTime + _sync.CurrentSyncFolder.Correction;
                 lblAdjustedDateTimeSyncAlbumValue.Text = correctedDateTime.ToString("yyyy/MM/dd HH:mm:ss");
@@ -154,7 +154,7 @@ namespace PhotoTimeSync
             }
             else
             {
-                _currentPendingImage = Image.FromFile(_currentPendingPhoto.FullPath);
+                _currentPendingImage = _currentPendingPhoto.Thumbnail;
                 lblPendingAlbumOriginalDateTimeValue.Text = _currentPendingPhoto.InitialDateTime.ToString("yyyy/MM/dd HH:mm:ss");
                 lblPendingAlbumPicName.Text = _currentPendingPhoto.fileName;
                 btnPendingAlbumIsSync.Enabled = true;
