@@ -313,6 +313,15 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checking and listing selected folder content ongoing. Please wait ....
+        /// </summary>
+        internal static string Screen1_CheckingFolderContent {
+            get {
+                return ResourceManager.GetString("Screen1_CheckingFolderContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select photos folder.
         /// </summary>
         internal static string Screen1_Header {

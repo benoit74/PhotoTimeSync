@@ -206,7 +206,7 @@
             this.btnTwitter.Name = "btnTwitter";
             this.btnTwitter.Size = new System.Drawing.Size(96, 23);
             this.btnTwitter.TabIndex = 23;
-            this.btnTwitter.Text = "Tweeter";
+            this.btnTwitter.Text = "Twitter";
             this.btnTwitter.UseVisualStyleBackColor = true;
             this.btnTwitter.Click += new System.EventHandler(this.btnTwitter_Click);
             // 
