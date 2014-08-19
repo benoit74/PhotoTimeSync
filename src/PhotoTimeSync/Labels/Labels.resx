@@ -325,4 +325,7 @@
   <data name="Screen4_LabelDonate" xml:space="preserve">
     <value>Donate</value>
   </data>
+  <data name="Screen1_CheckingFolderContent" xml:space="preserve">
+    <value>Checking and listing selected folder content ongoing. Please wait ...</value>
+  </data>
 </root>

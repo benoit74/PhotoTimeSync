@@ -1,6 +1,7 @@
 ﻿using ExifLibrary;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,19 +17,67 @@ namespace PhotoTimeSync
         {
             get
             {
-                if (_exifImage == null)
-                {
-                    _exifImage = ImageFile.FromFile(FullPath);
-                    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Property extraction done", "File: {0}", this.FullPath);
+                /*if (_exifImage == null)
+                {*/
+                    return ImageFile.FromFile(FullPath);
+                /*    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Property extraction done", "File: {0}", this.FullPath);
                 }
                 else
                 {
                     LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Reusing existing property", "File: {0}", this.FullPath);
                 }
-                return _exifImage;
+                return _exifImage;*/
             }
         }
-        private ImageFile _exifImage;
+        //private ImageFile _exifImage;
+
+        public Image Thumbnail
+        {
+            get
+            {
+                ImageFile exif = this.ExifImage;
+                ExifProperty orientProp = exif.Properties.Where(p => p.Key == ExifTag.Orientation).Select(p => p.Value).SingleOrDefault();
+                Orientation orient;
+                if (orientProp == null)
+                    orient = Orientation.Normal;
+                else
+                    orient = (Orientation)orientProp.Value;
+                Image thumb = exif.Thumbnail.ToImage();
+                if (orient != Orientation.Normal)
+                {
+                    //we need to rotate/flip
+                    //check the orientation and rotate/flip the image
+                    switch (orient)
+                    {
+                        case Orientation.RotatedLeft:
+                            thumb.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                            break;
+                        case Orientation.RotatedRight:
+                            thumb.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                            break;
+                        case Orientation.RotatedRightAndMirroredVertically:
+                            thumb.RotateFlip(RotateFlipType.Rotate90FlipXY);
+                            break;
+                        case Orientation.MirroredHorizontally:
+                            thumb.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                            break;
+                        case Orientation.Rotated180:
+                            thumb.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                            break;
+                        case Orientation.RotatedLeftAndMirroredVertically:
+                            thumb.RotateFlip(RotateFlipType.Rotate270FlipXY);
+                            break;
+                        case Orientation.MirroredVertically:
+                            thumb.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                            break;
+
+                    }
+
+                }
+                return thumb;
+            }
+
+        }
 
         public string FullPath
         {

@@ -143,8 +143,9 @@ namespace PhotoTimeSync
                     if (fld.Correction.TotalSeconds != 0)
                     {
                         LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Processing", "Photo {0}", photo.fileName);
-                        photo.ExifImage.Properties.Set(ExifTag.DateTime, photo.InitialDateTime + fld.Correction);
-                        photo.ExifImage.Save(photo.FullPath);
+                        ImageFile image = photo.ExifImage;
+                        image.Properties.Set(ExifTag.DateTime, photo.InitialDateTime + fld.Correction);
+                        image.Save(photo.FullPath);
                         treatedNbPhotos++;
                     }
                     else
