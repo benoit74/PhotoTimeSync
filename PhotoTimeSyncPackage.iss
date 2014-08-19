@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Photo Time Sync"
-#define MyAppVersion "0.1.2.0"
+#define MyAppVersion "0.1.2.1"
 #define MyAppPublisher "Benoit Beraud"
 #define MyAppURL "http://phototimesync.oviles.info/"
 #define MyAppExeName "PhotoTimeSync.exe"
