@@ -316,4 +316,16 @@
     <value>Si vous appréciez ce logiciel, merci de nous soutenir et faites passer le mot !</value>
     <comment>Final words text - part 2.</comment>
   </data>
+  <data name="Screen4_ButtonDonate5Euros" xml:space="preserve">
+    <value>5 euros</value>
+  </data>
+  <data name="Screen4_ButtonDonateFreeAmount" xml:space="preserve">
+    <value>Montant libre</value>
+  </data>
+  <data name="Screen4_LabelDonate" xml:space="preserve">
+    <value>Faire un don</value>
+  </data>
+  <data name="Screen1_CheckingFolderContent" xml:space="preserve">
+    <value>Vérification et exploration du contenu du dossier sélectionné en cours. Merci de patienter ...</value>
+  </data>
 </root>
