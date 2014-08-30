@@ -466,6 +466,15 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filename prefix.
+        /// </summary>
+        internal static string Screen4_ColFilenamePrefix {
+            get {
+                return ResourceManager.GetString("Screen4_ColFilenamePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Folder name.
         /// </summary>
         internal static string Screen4_ColFolderName {
@@ -543,6 +552,15 @@ namespace PhotoTimeSync.Labels {
         internal static string Screen4_ProgressText {
             get {
                 return ResourceManager.GetString("Screen4_ProgressText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename photos so that they can be sorted alphabeticaly.
+        /// </summary>
+        internal static string Screen4_RenamePhotosCheckbox {
+            get {
+                return ResourceManager.GetString("Screen4_RenamePhotosCheckbox", resourceCulture);
             }
         }
     }

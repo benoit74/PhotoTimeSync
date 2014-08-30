@@ -17,19 +17,9 @@ namespace PhotoTimeSync
         {
             get
             {
-                /*if (_exifImage == null)
-                {*/
-                    return ImageFile.FromFile(FullPath);
-                /*    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Property extraction done", "File: {0}", this.FullPath);
-                }
-                else
-                {
-                    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "ExifImage", "Reusing existing property", "File: {0}", this.FullPath);
-                }
-                return _exifImage;*/
+                return ImageFile.FromFile(FullPath);
             }
         }
-        //private ImageFile _exifImage;
 
         public Image Thumbnail
         {
@@ -42,7 +32,15 @@ namespace PhotoTimeSync
                     orient = Orientation.Normal;
                 else
                     orient = (Orientation)orientProp.Value;
-                Image thumb = exif.Thumbnail.ToImage();
+                Image thumb;
+                if (exif.Thumbnail != null)
+                {
+                    thumb = exif.Thumbnail.ToImage();
+                }
+                else
+                {
+                    thumb = Image.FromFile(FullPath);
+                }
                 if (orient != Orientation.Normal)
                 {
                     //we need to rotate/flip

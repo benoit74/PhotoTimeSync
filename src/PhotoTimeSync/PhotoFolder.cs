@@ -11,6 +11,7 @@ namespace PhotoTimeSync
     {
         public IFolderPathProvider ParentPath { get; private set; }
         public string FolderName { get; private set; }
+        public string PicsPrefix { get; set; }
         public List<Photo> Photos { get; private set; }
         public TimeSpan Correction { get; set; }
         public bool IsSynced { get; set; }
@@ -19,6 +20,7 @@ namespace PhotoTimeSync
         {
             ParentPath = parentPath;
             FolderName = folderName;
+            PicsPrefix = folderName;
             Photos = new List<Photo>();
             Correction = TimeSpan.Zero;
             IsSynced = false;

@@ -328,4 +328,12 @@
   <data name="Screen1_CheckingFolderContent" xml:space="preserve">
     <value>Checking and listing selected folder content ongoing. Please wait ...</value>
   </data>
+  <data name="Screen4_ColFilenamePrefix" xml:space="preserve">
+    <value>Filename prefix</value>
+    <comment>Header of column 'Filename prefix'</comment>
+  </data>
+  <data name="Screen4_RenamePhotosCheckbox" xml:space="preserve">
+    <value>Rename photos so that they can be sorted alphabeticaly</value>
+    <comment>Text displayed in checkbox label</comment>
+  </data>
 </root>

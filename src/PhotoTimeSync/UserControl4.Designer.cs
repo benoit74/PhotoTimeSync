@@ -36,6 +36,7 @@
             this.lstCorrections = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblProgress = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.headerControl1 = new PhotoTimeSync.HeaderControl();
             this.btnTwitter = new System.Windows.Forms.Button();
             this.btnFacebook = new System.Windows.Forms.Button();
+            this.chkRenamePhotos = new System.Windows.Forms.CheckBox();
+            this.txtFilenamePrefixRename = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblIntroduction
@@ -67,16 +70,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstCorrections.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lstCorrections.FullRowSelect = true;
+            this.lstCorrections.GridLines = true;
             this.lstCorrections.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
             this.lstCorrections.Location = new System.Drawing.Point(3, 104);
+            this.lstCorrections.MultiSelect = false;
             this.lstCorrections.Name = "lstCorrections";
-            this.lstCorrections.Size = new System.Drawing.Size(646, 301);
+            this.lstCorrections.Size = new System.Drawing.Size(646, 277);
             this.lstCorrections.TabIndex = 1;
             this.lstCorrections.UseCompatibleStateImageBehavior = false;
             this.lstCorrections.View = System.Windows.Forms.View.Details;
-            this.lstCorrections.Resize += new System.EventHandler(this.listView1_Resize);
+            this.lstCorrections.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstCorrections_MouseDoubleClick);
+            this.lstCorrections.Resize += new System.EventHandler(this.lstCorrections_Resize);
             // 
             // columnHeader1
             // 
@@ -87,6 +95,11 @@
             // 
             this.columnHeader2.Text = "Correction";
             this.columnHeader2.Width = 119;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Filename prefix";
+            this.columnHeader3.Width = 120;
             // 
             // btnPrev
             // 
@@ -221,10 +234,33 @@
             this.btnFacebook.UseVisualStyleBackColor = true;
             this.btnFacebook.Click += new System.EventHandler(this.btnFacebook_Click);
             // 
+            // chkRenamePhotos
+            // 
+            this.chkRenamePhotos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkRenamePhotos.AutoSize = true;
+            this.chkRenamePhotos.Location = new System.Drawing.Point(3, 387);
+            this.chkRenamePhotos.Name = "chkRenamePhotos";
+            this.chkRenamePhotos.Size = new System.Drawing.Size(85, 19);
+            this.chkRenamePhotos.TabIndex = 25;
+            this.chkRenamePhotos.Text = "checkBox1";
+            this.chkRenamePhotos.UseVisualStyleBackColor = true;
+            this.chkRenamePhotos.CheckedChanged += new System.EventHandler(this.chkRenamePhotos_CheckedChanged);
+            // 
+            // txtFilenamePrefixRename
+            // 
+            this.txtFilenamePrefixRename.Location = new System.Drawing.Point(406, 173);
+            this.txtFilenamePrefixRename.Name = "txtFilenamePrefixRename";
+            this.txtFilenamePrefixRename.Size = new System.Drawing.Size(100, 21);
+            this.txtFilenamePrefixRename.TabIndex = 26;
+            this.txtFilenamePrefixRename.Visible = false;
+            this.txtFilenamePrefixRename.Leave += new System.EventHandler(this.txtFilenamePrefixRename_Leave);
+            // 
             // UserControl4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtFilenamePrefixRename);
+            this.Controls.Add(this.chkRenamePhotos);
             this.Controls.Add(this.btnFacebook);
             this.Controls.Add(this.btnTwitter);
             this.Controls.Add(this.btnFlattr);
@@ -242,6 +278,7 @@
             this.Name = "UserControl4";
             this.Size = new System.Drawing.Size(653, 554);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -262,5 +299,8 @@
         private System.Windows.Forms.Button btnFlattr;
         private System.Windows.Forms.Button btnTwitter;
         private System.Windows.Forms.Button btnFacebook;
+        private System.Windows.Forms.CheckBox chkRenamePhotos;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.TextBox txtFilenamePrefixRename;
     }
 }

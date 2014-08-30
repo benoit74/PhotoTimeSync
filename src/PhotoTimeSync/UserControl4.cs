@@ -32,16 +32,34 @@ namespace PhotoTimeSync
             lstCorrections.Items.Clear();
             foreach (PhotoFolder fld in _sync.Folders)
             {
-                lstCorrections.Items.Add(new ListViewItem(new string[] {fld.FolderName, fld.CorrectionToString()}));
+                ListViewItem item = new ListViewItem(new string[] { fld.FolderName, fld.CorrectionToString(), fld.PicsPrefix });
+                item.Tag = fld;
+                lstCorrections.Items.Add(item);
             }
+            lstCorrections.Columns[2].Width = 0;
             RefreshLabels();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "Init", "OK", "");
         }
 
-        private void listView1_Resize(object sender, EventArgs e)
+        private void lstCorrections_Resize(object sender, EventArgs e)
         {
-            lstCorrections.Columns[0].Width = (lstCorrections.Width) / 2;
-            lstCorrections.Columns[1].Width = (lstCorrections.Width) / 2;
+            if (chkRenamePhotos.Checked)
+            {
+                lstCorrections.Columns[0].Width = (lstCorrections.Width) / 3;
+                lstCorrections.Columns[1].Width = (lstCorrections.Width) / 3;
+                lstCorrections.Columns[2].Width = (lstCorrections.Width) / 3;
+            }
+            else
+            {
+                lstCorrections.Columns[0].Width = (lstCorrections.Width) / 2;
+                lstCorrections.Columns[1].Width = (lstCorrections.Width) / 2;
+                lstCorrections.Columns[2].Width = 0;
+            }
+        }
+
+        private void chkRenamePhotos_CheckedChanged(object sender, EventArgs e)
+        {
+            lstCorrections_Resize(sender, e);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -114,7 +132,7 @@ namespace PhotoTimeSync
 
         void CountPhotosIfCorrectionNeeded(PhotoFolder fld, ref int currentCount)
         {
-            if (fld.Correction.TotalSeconds != 0)
+            if (fld.Correction.TotalSeconds != 0 || chkRenamePhotos.Checked)
             {
                 currentCount += fld.Photos.Count();
             }
@@ -140,12 +158,24 @@ namespace PhotoTimeSync
                         nextReportProgress = DateTime.Now + new TimeSpan(0, 0, 1);
                     }
                     // Do this check for each photos to update correctly progress percentage ...
-                    if (fld.Correction.TotalSeconds != 0)
+                    if (fld.Correction.TotalSeconds != 0 || chkRenamePhotos.Checked)
                     {
                         LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Processing", "Photo {0}", photo.fileName);
                         ImageFile image = photo.ExifImage;
-                        image.Properties.Set(ExifTag.DateTime, photo.InitialDateTime + fld.Correction);
-                        image.Save(photo.FullPath);
+                        DateTime correctedDateTime = photo.InitialDateTime + fld.Correction;
+                        image.Properties.Set(ExifTag.DateTime, correctedDateTime);
+                        if (chkRenamePhotos.Checked)
+                        {
+                            System.IO.FileInfo file = new System.IO.FileInfo(photo.FullPath);
+                            string newFileName = correctedDateTime.ToString("yyyyMMdd_HHmmss") + "_" + fld.PicsPrefix + "_" + file.Name;
+                            string folder = System.IO.Path.GetDirectoryName(file.FullName);
+                            image.Save(System.IO.Path.Combine(folder, newFileName));
+                            System.IO.File.Delete(file.FullName);
+                        }
+                        else
+                        {
+                            image.Save(photo.FullPath);
+                        }
                         treatedNbPhotos++;
                     }
                     else
@@ -196,9 +226,61 @@ namespace PhotoTimeSync
             lblIntroduction.Text = Labels.Labels.Screen4_Introduction;
             columnHeader1.Text = Labels.Labels.Screen4_ColFolderName;
             columnHeader2.Text = Labels.Labels.Screen4_ColCorrection;
+            columnHeader3.Text = Labels.Labels.Screen4_ColFilenamePrefix;
             btnDonatePaypal5Euros.Text = Labels.Labels.Screen4_ButtonDonate5Euros;
             btnDonatePaypalFreeAmount.Text = Labels.Labels.Screen4_ButtonDonateFreeAmount;
+            chkRenamePhotos.Text = Labels.Labels.Screen4_RenamePhotosCheckbox;
         }
+
+        private void lstCorrections_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int selIdx = -1;
+            PhotoFolder fld = null;
+
+            if (lstCorrections.SelectedIndices.Count > 0)
+            {
+                selIdx = lstCorrections.SelectedIndices[0];
+                fld = (PhotoFolder)lstCorrections.Items[selIdx].Tag;
+            }
+
+            if (selIdx >= 0 && fld != null)
+            {
+                if (lstCorrections.Items[selIdx].SubItems.Count >= 2)
+                {
+                    Rectangle itemRect = lstCorrections.Items[selIdx].SubItems[2].Bounds;
+
+                    itemRect.Offset(lstCorrections.Left, lstCorrections.Top);
+
+                    txtFilenamePrefixRename.SetBounds(itemRect.X, itemRect.Y, itemRect.Width, itemRect.Height);
+                    txtFilenamePrefixRename.Text = lstCorrections.Items[selIdx].SubItems[2].Text;
+                    txtFilenamePrefixRename.Visible = true;
+                    txtFilenamePrefixRename.Focus();
+                }
+            }
+        
+        }
+
+        private void txtFilenamePrefixRename_Leave(object sender, EventArgs e)
+        {
+            int selIdx = -1;
+            PhotoFolder fld = null;
+
+            if (lstCorrections.SelectedIndices.Count > 0)
+            {
+                selIdx = lstCorrections.SelectedIndices[0];
+                fld = (PhotoFolder)lstCorrections.Items[selIdx].Tag;
+            }
+
+            if (selIdx >= 0 && fld != null)
+            {
+                fld.PicsPrefix = txtFilenamePrefixRename.Text;
+                lstCorrections.Items[selIdx].SubItems[2].Text = fld.PicsPrefix;
+            }
+
+            txtFilenamePrefixRename.Text = "";
+            txtFilenamePrefixRename.Visible = false;
+        }
+
 
 
 
