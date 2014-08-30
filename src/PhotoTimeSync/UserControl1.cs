@@ -99,12 +99,13 @@ namespace PhotoTimeSync
         private void ImportAndCheck()
         {
             LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl1", "ImportAndCheck", "Start", "");
-            txtImportResult.Text = Labels.Labels.Screen1_CheckingFolderContent;
-            Application.DoEvents();
+            SplashScreen.ShowSplash();
+            SplashScreen.UpdateSplash(Labels.Labels.Screen1_CheckingFolderContent);
             sbImportResult = new StringBuilder();
             _sync.CheckAndExploreFolder(sbImportResult);
             txtImportResult.Text = sbImportResult.ToString();
             RefreshContent();
+            SplashScreen.CloseSplash();
             LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl1", "ImportAndCheck", "Done", "FolderIsOK: {0}", _sync.FolderIsOK);
         }
 

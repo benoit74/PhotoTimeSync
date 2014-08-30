@@ -114,6 +114,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SettingsUtil.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThumbnailGenerator.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -166,6 +172,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,7 +198,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt">
@@ -200,6 +211,7 @@
     <Content Include="Pics\arrow_up.png" />
     <Content Include="Pics\flag_france.png" />
     <Content Include="Pics\flag_usa.png" />
+    <Content Include="Pics\Phototimesync-Trans-Med.png" />
     <Content Include="README.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
