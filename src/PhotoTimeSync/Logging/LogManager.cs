@@ -27,11 +27,19 @@ namespace PhotoTimeSync
             _CustomerUserID = CustomerUserID;
         }
 
-        private static List<LoggerWithSwitches> Loggers { get; set; }
+        private static List<LoggerWithSwitches> _loggers;
 
+        public static IEnumerable<ILogger> Loggers
+        {
+            get
+            {
+                return _loggers.Select(l => l.Logger);
+            }
+        }
+        
         static LogManager()
         {
-            Loggers = new List<LoggerWithSwitches>();
+            _loggers = new List<LoggerWithSwitches>();
         }
 
         /// <summary>
@@ -41,7 +49,7 @@ namespace PhotoTimeSync
         /// <param name="switches">List of switches</param>
         public static void Add(ILogger logger, List<LogSwitch> switches)
         {
-            Loggers.Add(new LoggerWithSwitches(logger, switches));
+            _loggers.Add(new LoggerWithSwitches(logger, switches));
         }
 
         /// <summary>
@@ -202,7 +210,7 @@ namespace PhotoTimeSync
         {
             string source = string.Format("{0}|{1:0000}", IPAddressUtil.GetInterNetworkIPAddress(false), System.Threading.Thread.CurrentThread.ManagedThreadId);
             DateTime date = DateTime.Now;
-            foreach(LoggerWithSwitches ls in Loggers)
+            foreach(LoggerWithSwitches ls in _loggers)
             {
                 if (LogSwitch.IsOn(ls.Switches, level, category, step, customerID, customerUserID))
                     ls.Logger.Log(date, customerID, customerUserID, level, category, step, source, message, data.ToString());

@@ -457,6 +457,15 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show logs.
+        /// </summary>
+        internal static string Screen4_ButtonShowLogs {
+            get {
+                return ResourceManager.GetString("Screen4_ButtonShowLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Correction.
         /// </summary>
         internal static string Screen4_ColCorrection {
@@ -484,11 +493,20 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Conversion completed - {0} photos date/time corrected - {1} photos in error..
+        ///   Looks up a localized string similar to Conversion completed - {0} photos date/time corrected.
         /// </summary>
         internal static string Screen4_CompletedText {
             get {
                 return ResourceManager.GetString("Screen4_CompletedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to - unfortunately, {1} photos are in error..
+        /// </summary>
+        internal static string Screen4_CompletedTextForErrors {
+            get {
+                return ResourceManager.GetString("Screen4_CompletedTextForErrors", resourceCulture);
             }
         }
         
@@ -543,6 +561,15 @@ namespace PhotoTimeSync.Labels {
         internal static string Screen4_LabelDonate {
             get {
                 return ResourceManager.GetString("Screen4_LabelDonate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logs are not activated. Please contact Photo Time Sync support (phototimesync@oviles.info)..
+        /// </summary>
+        internal static string Screen4_LogsAreNotActivated {
+            get {
+                return ResourceManager.GetString("Screen4_LogsAreNotActivated", resourceCulture);
             }
         }
         

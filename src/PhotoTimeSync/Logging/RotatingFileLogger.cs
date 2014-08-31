@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PhotoTimeSync
 {
@@ -27,6 +26,23 @@ namespace PhotoTimeSync
 
         public RotatingFileLogger(string BaseFilePath, int NbRotatingFiles, long EachFileMaxSize, int MaxLogEntriesPendingInMemory)
         {
+            if (BaseFilePath.Contains("%%CommonApplicationData%%"))
+            {
+                BaseFilePath = BaseFilePath.Replace("%%CommonApplicationData%%", Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData));
+            }
+            if (BaseFilePath.Contains("%%ApplicationData%%"))
+            {
+                BaseFilePath = BaseFilePath.Replace("%%ApplicationData%%", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            }
+            if (BaseFilePath.Contains("%%LocalApplicationData%%"))
+            {
+                BaseFilePath = BaseFilePath.Replace("%%LocalApplicationData%%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            }
+            string folderName = new FileInfo(BaseFilePath).DirectoryName;
+            if (!System.IO.Directory.Exists(folderName))
+            {
+                System.IO.Directory.CreateDirectory(folderName);
+            }
             this.BaseFilePath = BaseFilePath;
             this.NbRotatingFiles = NbRotatingFiles;
             this.EachFileMaxSize = EachFileMaxSize;
@@ -59,7 +75,7 @@ namespace PhotoTimeSync
                 logDone = TryToLog(entry);
                 if (!logDone)
                 {
-                    LogManager.Log(System.Diagnostics.TraceLevel.Warning, "RotatingFileLogger", "Generic", "Throttling, producers are too fast", "");
+                    LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "RotatingFileLogger", "Generic", "Throttling, producers are too fast", "");
                     System.Threading.Thread.Sleep(10);
                 }
             }
@@ -91,7 +107,9 @@ namespace PhotoTimeSync
 
             NextLogOfQueueContent = DateTime.Now + new TimeSpan(0, 0, 1);
 
-            while (!bw.CancellationPending)
+            int currentPause = 1;
+
+            while (!bw.CancellationPending || Logs.Count > 0)
             {
 
                 while (Logs.Count > 0)
@@ -118,8 +136,26 @@ namespace PhotoTimeSync
 
                 }
 
-                // Sleep a bit while waiting for new logs to process
-                System.Threading.Thread.Sleep(10);
+                if (!bw.CancellationPending)
+                {
+                    // Sleep a bit while waiting for new logs to process
+                    System.Threading.Thread.Sleep(currentPause);
+
+                    if (Logs.Count == 0)
+                    {
+                        // If there is still no more log after current pause, we can pause even longer
+                        // but maximum is 128 millisecs (we pause by power of 2)
+                        currentPause = Math.Min(128, currentPause * 2);
+                    }
+                    else if (Logs.Count > MaxLogEntriesPendingInMemory)
+                    {
+                        // If after current pause, we have reached our maximum, we should take a shorter
+                        // pause next time, but a minimum pause of 1ms is needed, otherwise we will
+                        // use the whole CPU available for looking if there is something to log
+                        currentPause = Math.Max(1, currentPause / 2);
+                    }
+                }
+
             }
 
             // If the operation was canceled by the user,  
@@ -184,7 +220,7 @@ namespace PhotoTimeSync
         /// <param name="text"></param>
         public void LogAndRotate(string text)
         {
-            File.AppendAllLines(BaseFilePath, new List<string>() {text});
+            File.AppendAllText(BaseFilePath, text + Environment.NewLine);
             long size = (new FileInfo(BaseFilePath)).Length;
             if ((size > EachFileMaxSize) && (EachFileMaxSize > 0))
                 RotateFilesAndArchive();

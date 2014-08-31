@@ -289,8 +289,8 @@
     <comment>Header of column 'Folder Name'</comment>
   </data>
   <data name="Screen4_CompletedText" xml:space="preserve">
-    <value>Conversion completed - {0} photos date/time corrected - {1} photos in error.</value>
-    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified. {1} is replaced by the number of photos in error.</comment>
+    <value>Conversion completed - {0} photos date/time corrected</value>
+    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified. </comment>
   </data>
   <data name="Screen4_ConversionFailed" xml:space="preserve">
     <value>Conversion failed ! {0}.</value>
@@ -335,5 +335,15 @@
   <data name="Screen4_RenamePhotosCheckbox" xml:space="preserve">
     <value>Rename photos so that they can be sorted alphabeticaly</value>
     <comment>Text displayed in checkbox label</comment>
+  </data>
+  <data name="Screen4_ButtonShowLogs" xml:space="preserve">
+    <value>Show logs</value>
+  </data>
+  <data name="Screen4_LogsAreNotActivated" xml:space="preserve">
+    <value>Logs are not activated. Please contact Photo Time Sync support (phototimesync@oviles.info).</value>
+  </data>
+  <data name="Screen4_CompletedTextForErrors" xml:space="preserve">
+    <value>- unfortunately, {1} photos are in error.</value>
+    <comment>{1} is replaced by the number of photos in error.</comment>
   </data>
 </root>

@@ -50,6 +50,7 @@
             this.btnFacebook = new System.Windows.Forms.Button();
             this.chkRenamePhotos = new System.Windows.Forms.CheckBox();
             this.txtFilenamePrefixRename = new System.Windows.Forms.TextBox();
+            this.btnShowLogs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIntroduction
@@ -58,7 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIntroduction.Location = new System.Drawing.Point(3, 48);
             this.lblIntroduction.Name = "lblIntroduction";
-            this.lblIntroduction.Size = new System.Drawing.Size(646, 53);
+            this.lblIntroduction.Size = new System.Drawing.Size(677, 53);
             this.lblIntroduction.TabIndex = 0;
             this.lblIntroduction.Text = "Following time corrections will be applied to the pictures of each folders";
             this.lblIntroduction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,7 +80,7 @@
             this.lstCorrections.Location = new System.Drawing.Point(3, 104);
             this.lstCorrections.MultiSelect = false;
             this.lstCorrections.Name = "lstCorrections";
-            this.lstCorrections.Size = new System.Drawing.Size(646, 277);
+            this.lstCorrections.Size = new System.Drawing.Size(677, 279);
             this.lstCorrections.TabIndex = 1;
             this.lstCorrections.UseCompatibleStateImageBehavior = false;
             this.lstCorrections.View = System.Windows.Forms.View.Details;
@@ -104,7 +105,7 @@
             // btnPrev
             // 
             this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrev.Location = new System.Drawing.Point(3, 525);
+            this.btnPrev.Location = new System.Drawing.Point(3, 527);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(100, 23);
             this.btnPrev.TabIndex = 10;
@@ -115,7 +116,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(538, 525);
+            this.btnNext.Location = new System.Drawing.Point(569, 527);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 23);
             this.btnNext.TabIndex = 12;
@@ -127,9 +128,9 @@
             // 
             this.lblProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProgress.Location = new System.Drawing.Point(3, 410);
+            this.lblProgress.Location = new System.Drawing.Point(3, 412);
             this.lblProgress.Name = "lblProgress";
-            this.lblProgress.Size = new System.Drawing.Size(646, 27);
+            this.lblProgress.Size = new System.Drawing.Size(677, 27);
             this.lblProgress.TabIndex = 13;
             this.lblProgress.Text = "---";
             this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,9 +139,9 @@
             // btnQuit
             // 
             this.btnQuit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnQuit.Location = new System.Drawing.Point(276, 525);
+            this.btnQuit.Location = new System.Drawing.Point(344, 527);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(100, 23);
+            this.btnQuit.Size = new System.Drawing.Size(150, 23);
             this.btnQuit.TabIndex = 14;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -152,9 +153,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatistics.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatistics.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblStatistics.Location = new System.Drawing.Point(3, 442);
+            this.lblStatistics.Location = new System.Drawing.Point(3, 444);
             this.lblStatistics.Name = "lblStatistics";
-            this.lblStatistics.Size = new System.Drawing.Size(646, 40);
+            this.lblStatistics.Size = new System.Drawing.Size(677, 40);
             this.lblStatistics.TabIndex = 20;
             this.lblStatistics.Text = "---";
             this.lblStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -163,7 +164,7 @@
             // btnDonatePaypal5Euros
             // 
             this.btnDonatePaypal5Euros.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDonatePaypal5Euros.Location = new System.Drawing.Point(328, 492);
+            this.btnDonatePaypal5Euros.Location = new System.Drawing.Point(344, 494);
             this.btnDonatePaypal5Euros.Name = "btnDonatePaypal5Euros";
             this.btnDonatePaypal5Euros.Size = new System.Drawing.Size(96, 23);
             this.btnDonatePaypal5Euros.TabIndex = 14;
@@ -174,7 +175,7 @@
             // btnDonatePaypalFreeAmount
             // 
             this.btnDonatePaypalFreeAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDonatePaypalFreeAmount.Location = new System.Drawing.Point(427, 492);
+            this.btnDonatePaypalFreeAmount.Location = new System.Drawing.Point(443, 494);
             this.btnDonatePaypalFreeAmount.Name = "btnDonatePaypalFreeAmount";
             this.btnDonatePaypalFreeAmount.Size = new System.Drawing.Size(96, 23);
             this.btnDonatePaypalFreeAmount.TabIndex = 21;
@@ -190,7 +191,7 @@
             this.btnFlattr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnFlattr.FlatAppearance.BorderSize = 0;
             this.btnFlattr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFlattr.Location = new System.Drawing.Point(538, 492);
+            this.btnFlattr.Location = new System.Drawing.Point(554, 494);
             this.btnFlattr.Name = "btnFlattr";
             this.btnFlattr.Size = new System.Drawing.Size(100, 23);
             this.btnFlattr.TabIndex = 22;
@@ -209,13 +210,13 @@
             this.headerControl1.Location = new System.Drawing.Point(0, 0);
             this.headerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.headerControl1.Name = "headerControl1";
-            this.headerControl1.Size = new System.Drawing.Size(653, 44);
+            this.headerControl1.Size = new System.Drawing.Size(684, 44);
             this.headerControl1.TabIndex = 19;
             // 
             // btnTwitter
             // 
             this.btnTwitter.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTwitter.Location = new System.Drawing.Point(229, 492);
+            this.btnTwitter.Location = new System.Drawing.Point(245, 494);
             this.btnTwitter.Name = "btnTwitter";
             this.btnTwitter.Size = new System.Drawing.Size(96, 23);
             this.btnTwitter.TabIndex = 23;
@@ -226,7 +227,7 @@
             // btnFacebook
             // 
             this.btnFacebook.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnFacebook.Location = new System.Drawing.Point(130, 492);
+            this.btnFacebook.Location = new System.Drawing.Point(146, 494);
             this.btnFacebook.Name = "btnFacebook";
             this.btnFacebook.Size = new System.Drawing.Size(96, 23);
             this.btnFacebook.TabIndex = 24;
@@ -238,7 +239,7 @@
             // 
             this.chkRenamePhotos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkRenamePhotos.AutoSize = true;
-            this.chkRenamePhotos.Location = new System.Drawing.Point(3, 387);
+            this.chkRenamePhotos.Location = new System.Drawing.Point(3, 389);
             this.chkRenamePhotos.Name = "chkRenamePhotos";
             this.chkRenamePhotos.Size = new System.Drawing.Size(85, 19);
             this.chkRenamePhotos.TabIndex = 25;
@@ -255,10 +256,22 @@
             this.txtFilenamePrefixRename.Visible = false;
             this.txtFilenamePrefixRename.Leave += new System.EventHandler(this.txtFilenamePrefixRename_Leave);
             // 
+            // btnShowLogs
+            // 
+            this.btnShowLogs.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnShowLogs.Location = new System.Drawing.Point(191, 527);
+            this.btnShowLogs.Name = "btnShowLogs";
+            this.btnShowLogs.Size = new System.Drawing.Size(150, 23);
+            this.btnShowLogs.TabIndex = 27;
+            this.btnShowLogs.Text = "Show logs";
+            this.btnShowLogs.UseVisualStyleBackColor = true;
+            this.btnShowLogs.Click += new System.EventHandler(this.btnShowLogs_Click);
+            // 
             // UserControl4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnShowLogs);
             this.Controls.Add(this.txtFilenamePrefixRename);
             this.Controls.Add(this.chkRenamePhotos);
             this.Controls.Add(this.btnFacebook);
@@ -276,7 +289,7 @@
             this.Controls.Add(this.lblIntroduction);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UserControl4";
-            this.Size = new System.Drawing.Size(653, 554);
+            this.Size = new System.Drawing.Size(684, 556);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +315,6 @@
         private System.Windows.Forms.CheckBox chkRenamePhotos;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.TextBox txtFilenamePrefixRename;
+        private System.Windows.Forms.Button btnShowLogs;
     }
 }

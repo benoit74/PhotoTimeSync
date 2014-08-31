@@ -24,6 +24,7 @@ namespace PhotoTimeSync
             _sync = sync;
             lblProgress.Visible = false;
             btnQuit.Visible = false;
+            btnShowLogs.Visible = false;
             btnDonatePaypalFreeAmount.Visible = false;
             btnDonatePaypal5Euros.Visible = false;
             btnFacebook.Visible = false;
@@ -102,7 +103,12 @@ namespace PhotoTimeSync
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Finished", "{0} photos date/time corrected", res.nbTreatedPhotos);
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Finished", "{0} photos in error", res.nbPhotosInError);
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Finished", "{0} photos ignored (nothing to do)", res.nbPhotosIgnored);
-                lblProgress.Text = string.Format(Labels.Labels.Screen4_CompletedText, res.nbTreatedPhotos, res.nbPhotosInError);
+                string completedText = Labels.Labels.Screen4_CompletedText;
+                if (res.nbPhotosInError > 0)
+                {
+                    completedText += " " + Labels.Labels.Screen4_CompletedTextForErrors;
+                }
+                lblProgress.Text = string.Format(completedText, res.nbTreatedPhotos, res.nbPhotosInError);
                 lblProgress.ForeColor = Color.DarkGreen;
                 Properties.Settings.Default.TotalPhotosCorrected += res.nbTreatedPhotos;
                 Properties.Settings.Default.TotalAlbumsCorrected += res.nbAlbumsTreated;
@@ -121,6 +127,7 @@ namespace PhotoTimeSync
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
             btnQuit.Visible = true;
+            btnShowLogs.Visible = true; 
             btnDonatePaypalFreeAmount.Visible = true;
             btnDonatePaypal5Euros.Visible = true;
             btnFacebook.Visible = true;
@@ -181,6 +188,7 @@ namespace PhotoTimeSync
                                 System.IO.FileInfo file = new System.IO.FileInfo(photo.FullPath);
                                 string newFileName = correctedDateTime.ToString("yyyyMMdd_HHmmss") + "_" + fld.PicsPrefix + "_" + file.Name;
                                 string folder = System.IO.Path.GetDirectoryName(file.FullName);
+                                LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "", "Photo {0} will be renamed to {1}", photo.fileName, newFileName);
                                 image.Save(System.IO.Path.Combine(folder, newFileName));
                                 System.IO.File.Delete(file.FullName);
                             }
@@ -192,7 +200,7 @@ namespace PhotoTimeSync
                         }
                         else
                         {
-                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Correction is 0", "Photo {0}", photo.fileName);
+                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Nothing to do on", "photo {0}", photo.fileName);
                             res.nbPhotosIgnored++;
                         }
                     }
@@ -210,6 +218,26 @@ namespace PhotoTimeSync
         {
             LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "Exit", "", "");
             Application.Exit();
+        }
+
+        private void btnShowLogs_Click(object sender, EventArgs e)
+        {
+            bool found = false;
+            foreach (ILogger logger in LogManager.Loggers)
+            {
+                RotatingFileLogger rotLog = logger as RotatingFileLogger;
+                if (rotLog != null)
+                {
+                    string logFile = rotLog.BaseFilePath;
+                    Process.Start(System.IO.Directory.GetParent(logFile).FullName);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show(Labels.Labels.Screen4_LogsAreNotActivated, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnDonatePaypal5Euros_Click(object sender, System.EventArgs e)
@@ -249,6 +277,7 @@ namespace PhotoTimeSync
             btnDonatePaypal5Euros.Text = Labels.Labels.Screen4_ButtonDonate5Euros;
             btnDonatePaypalFreeAmount.Text = Labels.Labels.Screen4_ButtonDonateFreeAmount;
             chkRenamePhotos.Text = Labels.Labels.Screen4_RenamePhotosCheckbox;
+            btnShowLogs.Text = Labels.Labels.Screen4_ButtonShowLogs;
         }
 
         private void lstCorrections_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -320,6 +349,7 @@ namespace PhotoTimeSync
                 nbAlbumsTreated = 0;
             }
         }
+
 
     }
 }

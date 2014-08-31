@@ -154,7 +154,7 @@
     <comment>Text stating that a photo will be ignored since it has no Exif properties DateTime or DateTimeOriginal included. {0} will be replaced by the photo ignored name.</comment>
   </data>
   <data name="ExploreFolder_PhotosCount" xml:space="preserve">
-    <value>{0} photos trouvée(s) dans le sous-dossier &apos;{1}&apos;</value>
+    <value>{0} photos trouvée(s) dans le sous-dossier &apos;{1}&apos;.</value>
     <comment>Text stating the number of photos found in a given subfolders. {0} will be replaced by the number of photos found. {1} will be replaced by current subfolder name.</comment>
   </data>
   <data name="ExploreFolder_SubFolderCount" xml:space="preserve">
@@ -289,11 +289,11 @@
     <comment>Header of column 'Folder Name'</comment>
   </data>
   <data name="Screen4_CompletedText" xml:space="preserve">
-    <value>Correction terminée - {0} photos corrigées.</value>
-    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified.</comment>
+    <value>Conversion terminée - les dates et/ou heures de {0} photos ont été corrigées</value>
+    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified. </comment>
   </data>
   <data name="Screen4_ConversionFailed" xml:space="preserve">
-    <value>Correction en erreur ! {0}.</value>
+    <value>Conversion en erreur ! {0}.</value>
     <comment>Text displayed when conversion failed. {0} is replaced by the error message.</comment>
   </data>
   <data name="Screen4_FinalWords_Part1" xml:space="preserve">
@@ -327,5 +327,23 @@
   </data>
   <data name="Screen1_CheckingFolderContent" xml:space="preserve">
     <value>Vérification et exploration du contenu du dossier sélectionné en cours. Merci de patienter ...</value>
+  </data>
+  <data name="Screen4_ColFilenamePrefix" xml:space="preserve">
+    <value>Préfixe du nom de fichier</value>
+    <comment>Header of column 'Filename prefix'</comment>
+  </data>
+  <data name="Screen4_RenamePhotosCheckbox" xml:space="preserve">
+    <value>Renommer les photos pour le tri alphabétique</value>
+    <comment>Text displayed in checkbox label</comment>
+  </data>
+  <data name="Screen4_ButtonShowLogs" xml:space="preserve">
+    <value>Afficher les logs</value>
+  </data>
+  <data name="Screen4_LogsAreNotActivated" xml:space="preserve">
+    <value>Les logs ne sont pas activés. Merci de contacter le support de Photo Time Sync (phototimesync@oviles.info).</value>
+  </data>
+  <data name="Screen4_CompletedTextForErrors" xml:space="preserve">
+    <value>- malheureusement, le traitement de {1} photos est en erreur.</value>
+    <comment>{1} is replaced by the number of photos in error.</comment>
   </data>
 </root>
