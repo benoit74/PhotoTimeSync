@@ -7,6 +7,7 @@
   <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="Time"/>
   <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="AssemblyInfo"/>
   <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="Attrib"/>
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.dll" TaskName="Zip"/>
   
   <Import Project="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.targets"/>
 
