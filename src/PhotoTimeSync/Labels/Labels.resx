@@ -289,8 +289,8 @@
     <comment>Header of column 'Folder Name'</comment>
   </data>
   <data name="Screen4_CompletedText" xml:space="preserve">
-    <value>Conversion completed - {0} photos date/time corrected.</value>
-    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified.</comment>
+    <value>Conversion completed - {0} photos date/time corrected - {1} photos in error.</value>
+    <comment>Text displayed when conversion is completed. {0} is replaced by the number of photos modified. {1} is replaced by the number of photos in error.</comment>
   </data>
   <data name="Screen4_ConversionFailed" xml:space="preserve">
     <value>Conversion failed ! {0}.</value>

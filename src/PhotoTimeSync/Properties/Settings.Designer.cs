@@ -82,5 +82,17 @@ namespace PhotoTimeSync.Properties {
                 this["UserGUID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long TotalPhotosInError {
+            get {
+                return ((long)(this["TotalPhotosInError"]));
+            }
+            set {
+                this["TotalPhotosInError"] = value;
+            }
+        }
     }
 }

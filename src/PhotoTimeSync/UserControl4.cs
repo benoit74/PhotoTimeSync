@@ -98,21 +98,25 @@ namespace PhotoTimeSync
             }
             else
             {
-                int nbPhotosTreated = (int)e.Result;
-                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Success", "{0} photos date/time corrected", nbPhotosTreated);
-                lblProgress.Text = string.Format(Labels.Labels.Screen4_CompletedText, nbPhotosTreated);
+                BackgroundWorkerResult res = (BackgroundWorkerResult)e.Result;
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Finished", "{0} photos date/time corrected", res.nbTreatedPhotos);
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Finished", "{0} photos in error", res.nbPhotosInError);
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Finished", "{0} photos ignored (nothing to do)", res.nbPhotosIgnored);
+                lblProgress.Text = string.Format(Labels.Labels.Screen4_CompletedText, res.nbTreatedPhotos, res.nbPhotosInError);
                 lblProgress.ForeColor = Color.DarkGreen;
-                Properties.Settings.Default.TotalPhotosCorrected += nbPhotosTreated;
-                int nbAlbumsTreated = _sync.Folders.Where(f => f.Correction.TotalSeconds != 0).Count();
-                Properties.Settings.Default.TotalAlbumsCorrected += nbAlbumsTreated;
+                Properties.Settings.Default.TotalPhotosCorrected += res.nbTreatedPhotos;
+                Properties.Settings.Default.TotalAlbumsCorrected += res.nbAlbumsTreated;
+                Properties.Settings.Default.TotalPhotosInError += res.nbPhotosInError;
                 lblStatistics.Text = string.Format(
                     Labels.Labels.Screen4_FinalWords_Part1 + Environment.NewLine + Labels.Labels.Screen4_FinalWords_Part2,
                     Properties.Settings.Default.TotalPhotosCorrected,
                     Properties.Settings.Default.TotalAlbumsCorrected);
                 lblStatistics.Visible = true;
-                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.", 
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have corrected a total of {0} photos from {1} cameras.",
                     Properties.Settings.Default.TotalPhotosCorrected,
                     Properties.Settings.Default.TotalAlbumsCorrected);
+                LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "RunWorkerCompleted", "Stats", "You have encountered a total of {0} photos in error.",
+                                    Properties.Settings.Default.TotalPhotosInError);
                 Properties.Settings.Default.Save();
             }
             lblProgress.Font = new Font(lblProgress.Font, FontStyle.Bold);
@@ -141,50 +145,65 @@ namespace PhotoTimeSync
         void bg_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            int totalNbPhotos = 0;
-            _sync.Folders.ForEach(f => CountPhotosIfCorrectionNeeded(f, ref totalNbPhotos));
+            BackgroundWorkerResult res = new BackgroundWorkerResult();
+            _sync.Folders.ForEach(f => CountPhotosIfCorrectionNeeded(f, ref res.expectedNbPhotosToTreat));
             DateTime? nextReportProgress = null;
 
-            int treatedNbPhotos = 0;
+            PhotoFolder prevTreatedFld = null;
+
             foreach (PhotoFolder fld in _sync.Folders)
             {
                 LogManager.Log(System.Diagnostics.TraceLevel.Info, "UserControl4", "DoWork", "Processing", "Folder {0}", fld.FolderName);
                 foreach (Photo photo in fld.Photos)
                 {
-                    if (worker.WorkerReportsProgress && (nextReportProgress == null || DateTime.Now > nextReportProgress))
+                    try
                     {
-                        if (totalNbPhotos > 0)
-                            worker.ReportProgress(treatedNbPhotos * 100 / totalNbPhotos);
-                        nextReportProgress = DateTime.Now + new TimeSpan(0, 0, 1);
-                    }
-                    // Do this check for each photos to update correctly progress percentage ...
-                    if (fld.Correction.TotalSeconds != 0 || chkRenamePhotos.Checked)
-                    {
-                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Processing", "Photo {0}", photo.fileName);
-                        ImageFile image = photo.ExifImage;
-                        DateTime correctedDateTime = photo.InitialDateTime + fld.Correction;
-                        image.Properties.Set(ExifTag.DateTime, correctedDateTime);
-                        if (chkRenamePhotos.Checked)
+                        if (worker.WorkerReportsProgress && (nextReportProgress == null || DateTime.Now > nextReportProgress))
                         {
-                            System.IO.FileInfo file = new System.IO.FileInfo(photo.FullPath);
-                            string newFileName = correctedDateTime.ToString("yyyyMMdd_HHmmss") + "_" + fld.PicsPrefix + "_" + file.Name;
-                            string folder = System.IO.Path.GetDirectoryName(file.FullName);
-                            image.Save(System.IO.Path.Combine(folder, newFileName));
-                            System.IO.File.Delete(file.FullName);
+                            if (res.expectedNbPhotosToTreat > 0)
+                                worker.ReportProgress(res.nbTreatedPhotos * 100 / res.expectedNbPhotosToTreat);
+                            nextReportProgress = DateTime.Now + new TimeSpan(0, 0, 1);
+                        }
+                        // Do this check for each photos to update correctly progress percentage ...
+                        if (fld.Correction.TotalSeconds != 0 || chkRenamePhotos.Checked)
+                        {
+                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Processing", "Photo {0}", photo.fileName);
+                            if (prevTreatedFld == null || prevTreatedFld != fld)
+                            {
+                                res.nbAlbumsTreated++;
+                                prevTreatedFld = fld;
+                            }
+                            ImageFile image = photo.ExifImage;
+                            DateTime correctedDateTime = photo.InitialDateTime + fld.Correction;
+                            image.Properties.Set(ExifTag.DateTime, correctedDateTime);
+                            if (chkRenamePhotos.Checked)
+                            {
+                                System.IO.FileInfo file = new System.IO.FileInfo(photo.FullPath);
+                                string newFileName = correctedDateTime.ToString("yyyyMMdd_HHmmss") + "_" + fld.PicsPrefix + "_" + file.Name;
+                                string folder = System.IO.Path.GetDirectoryName(file.FullName);
+                                image.Save(System.IO.Path.Combine(folder, newFileName));
+                                System.IO.File.Delete(file.FullName);
+                            }
+                            else
+                            {
+                                image.Save(photo.FullPath);
+                            }
+                            res.nbTreatedPhotos++;
                         }
                         else
                         {
-                            image.Save(photo.FullPath);
+                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Correction is 0", "Photo {0}", photo.fileName);
+                            res.nbPhotosIgnored++;
                         }
-                        treatedNbPhotos++;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "Correction is 0", "Photo {0}", photo.fileName);
+                        LogManager.Log(System.Diagnostics.TraceLevel.Error, "UserControl4", "DoWork", "Error while processing photo", "Photo {0}\r\n{1}", photo.fileName, ExceptionDisplayer.GetString(ex));
+                        res.nbPhotosInError++;
                     }
                 }
             }
-            e.Result = treatedNbPhotos;
+            e.Result = res;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -284,7 +303,23 @@ namespace PhotoTimeSync
 
 
 
+        private class BackgroundWorkerResult
+        {
+            public int nbTreatedPhotos;
+            public int nbPhotosInError;
+            public int nbPhotosIgnored;
+            public int expectedNbPhotosToTreat;
+            public int nbAlbumsTreated;
 
+            public BackgroundWorkerResult()
+            {
+                nbPhotosInError = 0;
+                nbTreatedPhotos = 0;
+                expectedNbPhotosToTreat = 0;
+                nbPhotosIgnored = 0;
+                nbAlbumsTreated = 0;
+            }
+        }
 
     }
 }

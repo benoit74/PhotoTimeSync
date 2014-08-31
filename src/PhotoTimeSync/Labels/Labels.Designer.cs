@@ -484,7 +484,7 @@ namespace PhotoTimeSync.Labels {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Conversion completed - {0} photos date/time corrected..
+        ///   Looks up a localized string similar to Conversion completed - {0} photos date/time corrected - {1} photos in error..
         /// </summary>
         internal static string Screen4_CompletedText {
             get {
