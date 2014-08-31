@@ -90,10 +90,26 @@
         OutputXmlFile="$(NUnitResultsFile)"
     />
   </Target>
+    
+  <Target Name="Package-PhotoTimeSyncGUI">
+    <CallTarget Targets="Package-PhotoTimeSyncGUI-MSI" />
+    <CallTarget Targets="Package-PhotoTimeSyncGUI-Zip" />
+  </Target>
   
   <!-- Creates a MSI package for the GUI-->
-  <Target Name="Package-PhotoTimeSyncGUI">
+  <Target Name="Package-PhotoTimeSyncGUI-MSI">
     <Exec Command="&quot;$(ToolsHome)Innosetup\ISCC.exe&quot; &quot;$(PhotoTimeSyncGUIInnoSetupScript)&quot; &quot;/dSetupIconFile=$(MSBuildThisFileDirectory)logo\Phototimesync-Trans-Ico.ico&quot; &quot;/dBinariesFolder=$(PhotoTimeSyncRawBuildGUI)&quot; &quot;/dMyAppVersion=$(versionnumber)&quot; &quot;/dMyOutputBaseFilename=PhotoTimeSync-$(versionnumber)-setup&quot; &quot;/O$(PhotoTimeSyncPackages)&quot;" /> 
+  </Target>
+  
+  <!-- Creates a Zip file for the GUI-->
+  <Target Name="Package-PhotoTimeSyncGUI-Zip">
+    <ItemGroup>
+      <ZipLocalFiles Include="$(PhotoTimeSyncRawBuildGUI)\**\*.*" Exclude="$(DebugPath)\*vshost.exe*" />
+    </ItemGroup>
+    <Zip Files="@(ZipLocalFiles)"
+      WorkingDirectory="$(PhotoTimeSyncRawBuildGUI)"
+      ZipFileName="$(PhotoTimeSyncPackages)PhotoTimeSync-$(versionnumber).zip"
+      ZipLevel="9" />
   </Target>
 
 </Project>
