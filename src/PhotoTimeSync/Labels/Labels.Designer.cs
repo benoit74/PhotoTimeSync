@@ -590,5 +590,14 @@ namespace PhotoTimeSync.Labels {
                 return ResourceManager.GetString("Screen4_RenamePhotosCheckbox", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The character &apos;_&apos; is not allowed in filename prefix..
+        /// </summary>
+        internal static string Screen4_UnderscoreNotAllowed {
+            get {
+                return ResourceManager.GetString("Screen4_UnderscoreNotAllowed", resourceCulture);
+            }
+        }
     }
 }

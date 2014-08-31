@@ -346,4 +346,7 @@
     <value>- unfortunately, {1} photos are in error.</value>
     <comment>{1} is replaced by the number of photos in error.</comment>
   </data>
+  <data name="Screen4_UnderscoreNotAllowed" xml:space="preserve">
+    <value>The character '_' is not allowed in filename prefix.</value>
+  </data>
 </root>

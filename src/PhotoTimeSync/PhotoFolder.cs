@@ -20,7 +20,7 @@ namespace PhotoTimeSync
         {
             ParentPath = parentPath;
             FolderName = folderName;
-            PicsPrefix = folderName;
+            PicsPrefix = folderName.Replace('_', '-'); // Do not use underscore in pics prefix, they are verbotten for proper multiple time operation of rename
             Photos = new List<Photo>();
             Correction = TimeSpan.Zero;
             IsSynced = false;

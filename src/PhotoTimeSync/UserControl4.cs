@@ -182,11 +182,42 @@ namespace PhotoTimeSync
                             }
                             ImageFile image = photo.ExifImage;
                             DateTime correctedDateTime = photo.InitialDateTime + fld.Correction;
-                            image.Properties.Set(ExifTag.DateTime, correctedDateTime);
+                            image.Properties.Set(ExifTag.DateTimeOriginal, correctedDateTime);
+
+                            /*
+                            if (!photo.AlreadyProcessedPreviously)
+                            {
+                                string newUsrComment = string.Empty;
+                                if (!string.IsNullOrEmpty(photo.InitialUserComment))
+                                {
+                                    newUsrComment += photo.InitialUserComment + "\r\n";
+                                }
+                                newUsrComment += Photo.CustomUserComment;
+                                image.Properties.Set(ExifTag.UserComment, newUsrComment);
+                            }
+                             * */
+
                             if (chkRenamePhotos.Checked)
                             {
                                 System.IO.FileInfo file = new System.IO.FileInfo(photo.FullPath);
-                                string newFileName = correctedDateTime.ToString("yyyyMMdd_HHmmss") + "_" + fld.PicsPrefix + "_" + file.Name;
+                                string originalFileName;
+                                if  (photo.AlreadyProcessedPreviously)
+                                {
+                                    int thirdUnderScorePos = file.Name.IndexOf('_', 16);
+                                    if (thirdUnderScorePos > 0)
+                                    {
+                                        originalFileName = file.Name.Substring(thirdUnderScorePos + 1);
+                                    }
+                                    else
+                                    {
+                                        originalFileName = file.Name.Substring(16);
+                                    } 
+                                }
+                                else
+                                {
+                                    originalFileName = file.Name;
+                                }
+                                string newFileName = correctedDateTime.ToString("yyyyMMdd_HHmmss") + "_" + fld.PicsPrefix + "_" + originalFileName; 
                                 string folder = System.IO.Path.GetDirectoryName(file.FullName);
                                 LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "UserControl4", "DoWork", "", "Photo {0} will be renamed to {1}", photo.fileName, newFileName);
                                 image.Save(System.IO.Path.Combine(folder, newFileName));
@@ -321,8 +352,15 @@ namespace PhotoTimeSync
 
             if (selIdx >= 0 && fld != null)
             {
-                fld.PicsPrefix = txtFilenamePrefixRename.Text;
-                lstCorrections.Items[selIdx].SubItems[2].Text = fld.PicsPrefix;
+                if (txtFilenamePrefixRename.Text.Contains('_'))
+                {
+                    MessageBox.Show(Labels.Labels.Screen4_UnderscoreNotAllowed);
+                }
+                else
+                {
+                    fld.PicsPrefix = txtFilenamePrefixRename.Text;
+                    lstCorrections.Items[selIdx].SubItems[2].Text = fld.PicsPrefix;
+                }
             }
 
             txtFilenamePrefixRename.Text = "";

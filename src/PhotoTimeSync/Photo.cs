@@ -89,36 +89,61 @@ namespace PhotoTimeSync
         {
             ParentPath = parentPath;
             this.fileName = fileName;
+            _initialDateTimeRead = false;
         }
 
         private DateTime _initialDateTime;
+        private bool _initialDateTimeRead;
         public DateTime InitialDateTime
         {
             get
             {
-                if (_initialDateTime == new DateTime())
+                if (!_initialDateTimeRead)
                 {
+                    _initialDateTimeRead = true;
                     ImageFile imageF = ExifImage;
-                    if (!imageF.Properties.ContainsKey(ExifTag.DateTime))
+                    if (imageF.Properties.ContainsKey(ExifTag.DateTimeOriginal))
                     {
-                        if (!imageF.Properties.ContainsKey(ExifTag.DateTimeOriginal))
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Info -", "File: {0}, DateTimeOriginal: {1}", this.fileName, (DateTime)imageF.Properties[ExifTag.DateTimeOriginal].Value);
+                    }
+                    if (imageF.Properties.ContainsKey(ExifTag.DateTime))
+                    {
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Info -", "File: {0}, DateTime: {1}", this.fileName, (DateTime)imageF.Properties[ExifTag.DateTime].Value);
+                    }
+                    if (imageF.Properties.ContainsKey(ExifTag.DateTimeDigitized))
+                    {
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Info -", "File: {0}, DateTimeDigitized: {1}", this.fileName, (DateTime)imageF.Properties[ExifTag.DateTimeDigitized].Value);
+                    }
+                    if (!imageF.Properties.ContainsKey(ExifTag.DateTimeOriginal))
+                    {
+                        if (!imageF.Properties.ContainsKey(ExifTag.DateTime))
                         {
                             throw new Exception(String.Format("Both DateTime and DateTimeOriginal are null. Cannot process the photo '{0}'", FullPath));
                         }
                         else
                         {
-                            _initialDateTime = (DateTime)imageF.Properties[ExifTag.DateTimeOriginal].Value;
-                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Computed based on DateTimeOriginal", "File: {0}, Value: {1}", this.FullPath, _initialDateTime);
+                            _initialDateTime = (DateTime)imageF.Properties[ExifTag.DateTime].Value;
+                            LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Computed based on DateTime", "File: {0}, Value: {1}", this.FullPath, _initialDateTime);
                         }
                     }
                     else
                     {
-                        _initialDateTime = (DateTime)imageF.Properties[ExifTag.DateTime].Value;
-                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Computed based on DateTime", "File: {0}, Value: {1}", this.FullPath, _initialDateTime);
+                        _initialDateTime = (DateTime)imageF.Properties[ExifTag.DateTimeOriginal].Value;
+                        LogManager.Log(System.Diagnostics.TraceLevel.Verbose, "Photo", "InitialDateTime", "Computed based on DateTimeOriginal", "File: {0}, Value: {1}", this.FullPath, _initialDateTime);
                     }
                 }
                 return _initialDateTime;
             }
         }
+
+        public bool AlreadyProcessedPreviously
+        {
+            get
+            {
+                char[] fileNameChars = fileName.ToCharArray();
+                return (fileNameChars[8] == '_') && (fileNameChars[15] == '_');
+            }
+        }
+
     }
 }
