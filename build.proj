@@ -11,16 +11,19 @@
   <Import Project="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.targets"/>
 
   <PropertyGroup>
-    <OutDir Condition=" '$(OutDir)'=='' ">$(MSBuildThisFileDirectory)bin\</OutDir>
+    <OutDir Condition=" '$(OutDir)'=='' ">$(MSBuildThisFileDirectory)..\build\PhotoTimeSync\</OutDir>
     <Configuration Condition=" '$(Configuration)'=='' ">Release</Configuration>
     <SourceHome Condition=" '$(SourceHome)'=='' ">$(MSBuildThisFileDirectory)src\</SourceHome>
     <ToolsHome Condition=" '$(ToolsHome)'=='' ">$(MSBuildThisFileDirectory)tools\</ToolsHome>
     <NUnitResultsFile>$(OutDir)nunit-result.xml</NUnitResultsFile>
+    <PhotoTimeSyncRawBuildGUI Condition=" '$(PhotoTimeSyncRawBuildGUI)'=='' ">$(OutDir)PhotoTimeSyncGUI\</PhotoTimeSyncRawBuildGUI>
+    <PhotoTimeSyncPackages Condition=" '$(PhotoTimeSyncPackages)'=='' ">$(OutDir)Packages\</PhotoTimeSyncPackages>
+    <PhotoTimeSyncGUIInnoSetupScript Condition=" '$(PhotoTimeSyncGUIInnoSetupScript)'=='' ">$(MSBuildThisFileDirectory)..\PhotoTimeSyncPackage.iss</PhotoTimeSyncGUIInnoSetupScript>
   </PropertyGroup>
 
   <ItemGroup>
     <Solution Include="$(SourceHome)*.sln">
-      <AdditionalProperties>OutDir=$(OutDir);Configuration=$(Configuration)</AdditionalProperties>
+      <AdditionalProperties>Configuration=$(Configuration)</AdditionalProperties>
     </Solution>
   </ItemGroup>
   
@@ -75,16 +78,22 @@
     <CallTarget Targets="Version" />
     <CallTarget Targets="Rebuild" />
     <CallTarget Targets="RunTests" />
+    <CallTarget Targets="Package-PhotoTimeSyncGUI" />
   </Target>
   
   <Target Name="RunTests">
-    <CreateItem Include="$(OutDir)*.Specs.dll">
+    <CreateItem Include="$(OutDir)Tests\**\*.Specs.dll">
       <Output TaskParameter="Include" ItemName="TestAssembly" />
     </CreateItem>
     <NUnit   Assemblies="@(TestAssembly)"
         ToolPath="C:\Program Files (x86)\NUnit 2.6.3\bin"
         OutputXmlFile="$(NUnitResultsFile)"
     />
+  </Target>
+  
+  <!-- Creates a MSI package for the GUI-->
+  <Target Name="Package-PhotoTimeSyncGUI">
+    <Exec Command="&quot;$(ToolsHome)Innosetup\ISCC.exe&quot; &quot;/dBinariesFolder=$(PhotoTimeSyncRawBuildGUI)&quot; &quot;$(PhotoTimeSyncGUIInnoSetupScript)&quot; &quot;/dMyAppVersion=$(versionnumber)&quot; &quot;/dMyOutputBaseFilename=PhotoTimeSync-$(versionnumber)-setup&quot; &quot;/O$(PhotoTimeSyncPackages)&quot;" /> 
   </Target>
 
 </Project>

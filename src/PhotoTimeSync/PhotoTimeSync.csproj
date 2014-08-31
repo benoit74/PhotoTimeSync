@@ -220,6 +220,12 @@
     <None Include="Pics\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy /y /s "$(TargetDir)*" "$(SolutionDir)..\build\PhotoTimeSync\PhotoTimeSyncGUI\"
+del $(SolutionDir)..\build\PhotoTimeSync\PhotoTimeSyncGUI\*.vshost.*
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
