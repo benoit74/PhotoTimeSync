@@ -93,7 +93,7 @@
   
   <!-- Creates a MSI package for the GUI-->
   <Target Name="Package-PhotoTimeSyncGUI">
-    <Exec Command="&quot;$(ToolsHome)Innosetup\ISCC.exe&quot; &quot;/dBinariesFolder=$(PhotoTimeSyncRawBuildGUI)&quot; &quot;$(PhotoTimeSyncGUIInnoSetupScript)&quot; &quot;/dMyAppVersion=$(versionnumber)&quot; &quot;/dMyOutputBaseFilename=PhotoTimeSync-$(versionnumber)-setup&quot; &quot;/O$(PhotoTimeSyncPackages)&quot;" /> 
+    <Exec Command="&quot;$(ToolsHome)Innosetup\ISCC.exe&quot; &quot;$(PhotoTimeSyncGUIInnoSetupScript)&quot; &quot;/dSetupIconFile=$(MSBuildThisFileDirectory)logo\Phototimesync-Trans-Ico.ico&quot; &quot;/dBinariesFolder=$(PhotoTimeSyncRawBuildGUI)&quot; &quot;/dMyAppVersion=$(versionnumber)&quot; &quot;/dMyOutputBaseFilename=PhotoTimeSync-$(versionnumber)-setup&quot; &quot;/O$(PhotoTimeSyncPackages)&quot;" /> 
   </Target>
 
 </Project>
