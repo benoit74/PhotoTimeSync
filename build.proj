@@ -104,7 +104,7 @@
   <!-- Creates a Zip file for the GUI-->
   <Target Name="Package-PhotoTimeSyncGUI-Zip">
     <ItemGroup>
-      <ZipLocalFiles Include="$(PhotoTimeSyncRawBuildGUI)\**\*.*" Exclude="$(DebugPath)\*vshost.exe*" />
+      <ZipLocalFiles Include="$(PhotoTimeSyncRawBuildGUI)\**\*.*" Exclude="*vshost.exe*" />
     </ItemGroup>
     <Zip Files="@(ZipLocalFiles)"
       WorkingDirectory="$(PhotoTimeSyncRawBuildGUI)"
