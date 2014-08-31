@@ -11,14 +11,14 @@
   <Import Project="$(MSBuildThisFileDirectory)src\.build\MSBuild.Community.Tasks.targets"/>
 
   <PropertyGroup>
-    <OutDir Condition=" '$(OutDir)'=='' ">$(MSBuildThisFileDirectory)..\build\PhotoTimeSync\</OutDir>
+    <OutDir Condition=" '$(OutDir)'=='' ">$(MSBuildThisFileDirectory)build\PhotoTimeSync\</OutDir>
     <Configuration Condition=" '$(Configuration)'=='' ">Release</Configuration>
     <SourceHome Condition=" '$(SourceHome)'=='' ">$(MSBuildThisFileDirectory)src\</SourceHome>
     <ToolsHome Condition=" '$(ToolsHome)'=='' ">$(MSBuildThisFileDirectory)tools\</ToolsHome>
     <NUnitResultsFile>$(OutDir)nunit-result.xml</NUnitResultsFile>
     <PhotoTimeSyncRawBuildGUI Condition=" '$(PhotoTimeSyncRawBuildGUI)'=='' ">$(OutDir)PhotoTimeSyncGUI\</PhotoTimeSyncRawBuildGUI>
     <PhotoTimeSyncPackages Condition=" '$(PhotoTimeSyncPackages)'=='' ">$(OutDir)Packages\</PhotoTimeSyncPackages>
-    <PhotoTimeSyncGUIInnoSetupScript Condition=" '$(PhotoTimeSyncGUIInnoSetupScript)'=='' ">$(MSBuildThisFileDirectory)..\PhotoTimeSyncPackage.iss</PhotoTimeSyncGUIInnoSetupScript>
+    <PhotoTimeSyncGUIInnoSetupScript Condition=" '$(PhotoTimeSyncGUIInnoSetupScript)'=='' ">$(MSBuildThisFileDirectory)PhotoTimeSyncPackage.iss</PhotoTimeSyncGUIInnoSetupScript>
   </PropertyGroup>
 
   <ItemGroup>
